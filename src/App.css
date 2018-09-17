@@ -63,4 +63,10 @@
 
 .left-nav{
   border: 1px solid black;
+  background: black;
+  font-size: large;
+}
+
+.nav-header{
+  color: white;
 }
