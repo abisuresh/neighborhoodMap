@@ -5,17 +5,21 @@ class Search extends Component {
 
     }
 
+    render(){
+        const searchBarStyle = {
+            width: '20%',
+            height: '20%'
+        }
+        return (
+            <div>
+                <div class="search-bar">
+                </div>
+            </div>
+        )
+    }
+
 }
 
-render(){
-    const searchBarStyle = {
-        width: '20%',
-        height: '20%'
-    }
-    return (
-        <div>
-        </div>
-    )
-}
+
 
 export default Search

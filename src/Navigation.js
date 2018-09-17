@@ -6,18 +6,21 @@ class Navigation extends Component {
 
     }
 
-
-}
-
-render(){
-    const navigationStyle = {
-        width: '30%',
-        height: '100%'
+    render(){
+        const navigationStyle = {
+            width: '30%',
+            height: '100%'
+        }
+        return (
+            <div>
+                <div class="navigation-bar">
+                </div>
+            </div>
+        )
     }
-    return (
-        <div>
-        </div>
-    )
+    
 }
+
+
 
 export default Navigation
