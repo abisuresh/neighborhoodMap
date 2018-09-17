@@ -56,6 +56,11 @@
   padding-left: 1%;
 }
 
-.search-bar{
+.input-filter input[type=text]{
+  font-size: large;
 
+}
+
+.left-nav{
+  border: 1px solid black;
 }

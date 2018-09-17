@@ -13,8 +13,9 @@ class Search extends Component {
         return (
             <div>
                 <div className="search-bar">
-                        <input type="text" placeholder="Filter..." name="filter" /> 
-
+                    <div className="input-filter">
+                        <input type="text" placeholder="Filter..." name="filter" />
+                    </div>
                 </div>
             </div>
         )

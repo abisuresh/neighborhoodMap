@@ -42,6 +42,9 @@ class App extends Component {
         </p>
         <div className="main flexbox-container">
             <div className="left-nav">
+                <div className="nav-header">
+                    Travel Locations
+                </div>
                 <div className="search-container">
                     <Search />
                 </div>
