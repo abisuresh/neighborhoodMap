@@ -24,9 +24,11 @@ class App extends Component {
 
   render() {
     const mapStyle={
-        width: '100%',
+        width: '80%',
         height: '100%',
-        border: '1px solid black'
+        border: '1px solid black',
+        float: 'right',
+        padding: '1%'
     }
 
     return (
@@ -36,17 +38,21 @@ class App extends Component {
           <h1 className="App-title">Google Map</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          Places
         </p>
-        <div class="map-container" style = {mapStyle}>
-            <p>
-            </p>
-            <div class="map">
-                <Map />
+        <div class="main">
+            <div class="map-container" style = {mapStyle}>
+                <p>
+                </p>
+                <div class="map">
+                    <Map />
+                </div>
+            </div>
+            <div class="navigation-container">
+                <Navigation />
             </div>
         </div>
-        <div class="navigation-container">
-        </div>
+
       </div>
     );
   }

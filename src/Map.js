@@ -12,7 +12,8 @@ class Map extends Component {
 
 
     getGoogleMap(apiKEY, props) {
-        const markerLoc =  (props.markerLoc || []).map(marker => [
+        const {latitude, longitude, width, height}= this.props
+        const markerLocation =  (props.markerLocation || []).map(marker => [
             "&markers=color:${marker.color || 'red'}",
             "label:${(marker.label || ''). replace('|', '\\|')}",
             "${marker.latitude},${marker.longitude}"
@@ -20,19 +21,20 @@ class Map extends Component {
 
         );
 
-
-        return 'https://maps.googleapis.com/maps/api/staticmap?center=${props.latitude},${props.longitude}&zoom=13&size=${props.width}x${props.height}&maptype=${props.type || "roadmap"}${markers.join("")}&key=${apiKEY}'
+        return `https://maps.googleapis.com/maps/api/staticmap?center=${props.latitude},${props.longitude}&zoom=13&size=${props.width}x${props.height}&maptype=${props.type || "roadmap"}${markerLocation.join("")}&key=${apiKEY}`
 
     }
 
 
     render() {
         let {latitude, longitude, width, height, markerLoc} = this.props
-        const apiKEY = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0&callback=initMap"
+        const apiKEY = "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"
         return (
             <div>
-                <div style = {{height: '100vh', width: '80vh'}} class="map">
+                <div class="map">
+                    <img src="{this.getGoogleMap(apiKEY, this.props)}" />
                     {this.getGoogleMap(apiKEY, this.props)}
+
                 </div>
             </div>
 

@@ -13,7 +13,7 @@ class Navigation extends Component {
         }
         return (
             <div>
-                <div class="navigation-bar">
+                <div class="navigation-bar" style = {{width: '20%', height: '100%vh', float: 'left' }}>
                     <li>
 
                     </li>
