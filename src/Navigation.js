@@ -14,6 +14,9 @@ class Navigation extends Component {
         return (
             <div>
                 <div class="navigation-bar">
+                    <li>
+
+                    </li>
                 </div>
             </div>
         )

@@ -42,6 +42,7 @@ class App extends Component {
             <p>
             </p>
             <div class="map">
+                <Map />
             </div>
         </div>
         <div class="navigation-container">
