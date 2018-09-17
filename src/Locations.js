@@ -19,3 +19,5 @@ class Locations extends Component {
 
 }
 
+export default Locations
+

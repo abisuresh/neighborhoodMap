@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import {GoogleApiWrapper} from 'google-maps-react';
 import {GoogleMap, Marker } from 'react-google-maps';
+import Map from './Map'
+import Markers from './Markers'
+import Locations from './Locations'
+import Navigation from './Navigation'
+import Search from './Search'
 import './App.css';
 
 class App extends Component {

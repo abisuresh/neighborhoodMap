@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Markers extends Componet{
+class Markers extends Component {
 
     state = {
 
@@ -18,3 +18,5 @@ class Markers extends Componet{
     }
 
 }
+
+export default Markers
