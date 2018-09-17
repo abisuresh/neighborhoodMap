@@ -7,4 +7,15 @@ class Search extends Component {
 
 }
 
+render(){
+    const searchBarStyle = {
+        width: '20%',
+        height: '20%'
+    }
+    return (
+        <div>
+        </div>
+    )
+}
+
 export default Search

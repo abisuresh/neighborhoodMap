@@ -9,4 +9,15 @@ class Navigation extends Component {
 
 }
 
+render(){
+    const navigationStyle = {
+        width: '30%',
+        height: '100%'
+    }
+    return (
+        <div>
+        </div>
+    )
+}
+
 export default Navigation
