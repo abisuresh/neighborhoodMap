@@ -27,6 +27,13 @@ class Map extends Component {
 
 
     render() {
+        // const mapStyle={
+        //     width: '80%',
+        //     height: '100%',
+        //     border: '1px solid black',
+        //     float: 'right',
+        //     padding: '1%'
+        // }
         let {latitude, longitude, width, height, markerLoc} = this.props
         const apiKEY = "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"
         return (

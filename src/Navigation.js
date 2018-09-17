@@ -8,15 +8,22 @@ class Navigation extends Component {
 
     render(){
         const navigationStyle = {
-            width: '30%',
-            height: '100%'
+            width: '100%',
+            height: '100%',
+            float: 'left',
+            border: 'solid 1px black',
+            listStyleType: 'none'
         }
         return (
             <div>
-                <div class="navigation-bar" style = {{width: '20%', height: '100%vh', float: 'left' }}>
-                    <li>
-
-                    </li>
+                <div class="navigation-bar" style = {{navigationStyle}}>
+                    <ul style={{listStyleType: 'none'}}>
+                        <li> Portland, ME </li>
+                        <li> Burlington, VT </li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
                 </div>
             </div>
         )

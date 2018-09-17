@@ -34,3 +34,21 @@
 .search-bar{
 
 }
+
+.navigation-bar {
+  background-color: black;
+  color: white;
+}
+
+.navigation-bar li:hover{
+  background-color: darkslategray;
+}
+
+.flexbox-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.main{
+  padding-left: 1%;
+}

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+// import { BrowserRouter } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import {GoogleApiWrapper} from 'google-maps-react';
 import {GoogleMap, Marker } from 'react-google-maps';
 import Map from './Map'
@@ -24,11 +27,10 @@ class App extends Component {
 
   render() {
     const mapStyle={
-        width: '80%',
+        width: '95%',
         height: '100%',
         border: '1px solid black',
-        float: 'right',
-        padding: '1%'
+        float: 'right'
     }
 
     return (
@@ -40,17 +42,23 @@ class App extends Component {
         <p className="App-intro">
           Places
         </p>
-        <div class="main">
+        <div class="main flexbox-container">
+            <div class="left-nav">
+                <div class="search-container">
+                    <Search />
+                </div>
+                <div class="navigation-container" style={{border: '1px solid black'}}>
+                    <Navigation />
+                </div>
+            </div>
             <div class="map-container" style = {mapStyle}>
-                <p>
-                </p>
+                <p></p>
                 <div class="map">
                     <Map />
                 </div>
             </div>
-            <div class="navigation-container">
-                <Navigation />
-            </div>
+
+
         </div>
 
       </div>
