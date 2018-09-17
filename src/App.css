@@ -9,7 +9,7 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 10%;
   padding: 20px;
   color: white;
 }
@@ -33,6 +33,7 @@
 
 .search-bar{
 
+
 }
 
 .navigation-bar {
@@ -43,7 +44,7 @@
 .navigation-bar li:hover{
   background-color: darkslategray;
   border: 1px darkred;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .flexbox-container{
@@ -53,4 +54,8 @@
 
 .main{
   padding-left: 1%;
+}
+
+.search-bar{
+
 }

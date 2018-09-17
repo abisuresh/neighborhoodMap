@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-// import { BrowserRouter } from 'react-router-dom'
-// import { Route } from 'react-router-dom'
-// import { Link } from 'react-router-dom'
+import { BrowserRouter } from 'react-router'
+import { Route } from 'react-router'
+import { Link } from 'react-router'
 import {GoogleApiWrapper} from 'google-maps-react';
 import {GoogleMap, Marker } from 'react-google-maps';
 import Map from './Map'
@@ -36,7 +35,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Google Map</h1>
         </header>
         <p className="App-intro">

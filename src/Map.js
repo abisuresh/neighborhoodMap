@@ -41,7 +41,6 @@ class Map extends Component {
                 <div className="map">
                     <img src="{this.getGoogleMap(apiKEY, this.props)}" />
                     {this.getGoogleMap(apiKEY, this.props)}
-
                 </div>
             </div>
 

@@ -8,11 +8,14 @@ class Locations extends Component {
 
     }
 
-    render(){
 
+
+    render(){
         return (
             <div>
                 <div className="locations-details">
+                    {this.latitude}
+                    {this.longitude}
                 </div>
             </div>
             )
