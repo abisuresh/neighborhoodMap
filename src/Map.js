@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import {GoogleApiWrapper} from 'google-maps-react';
+import {GoogleMap, Marker } from 'react-google-maps';
+import Search from './Search'
 
 class Map extends Component {
 
-    state = {
-
-    }
+    state = {}
 
     //utilized general setup of the following code to create static map URL
     // https://gist.github.com/ConnectExtend/c9c65e1f9b84886ff7f5a07c96320c5a
-    getGoogleMap(apiKEY, props){
+    getGoogleMap(apiKEY, props) {
         const marker = {}
 
         return 'https://maps.googleapis.com/maps/api/staticmap?center=${props.lat},${props.lng}&zoom=13&size=${props.width}x${props.height}&maptype=${props.type || "roadmap"}${markers.join("")}&key=${apiKEY}'
@@ -16,28 +17,19 @@ class Map extends Component {
     }
 
 
+    render() {
+        let {latitude, longitude, width, height} = this.props
 
-    render (){
-        const mapInfo = {
-            latitude: '0',
-            longitude: '0',
-            width: '50%',
-            height: '90%',
-            markers: [{
-                latitude: 0,
-                longitude: 0,
-                    label: 'X',
-                    color: 'green'
-            }]
-        }
-        <div>
-            <div class="map">
+        return (
+            <div>
+                <div class="map">
 
+                </div>
             </div>
-        </div>
+
+        )
 
     }
-
 
 }
 
