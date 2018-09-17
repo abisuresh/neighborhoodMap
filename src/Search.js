@@ -12,7 +12,7 @@ class Search extends Component {
         }
         return (
             <div>
-                <div class="search-bar">
+                <div className="search-bar">
                 </div>
             </div>
         )

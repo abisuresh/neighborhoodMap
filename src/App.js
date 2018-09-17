@@ -42,18 +42,18 @@ class App extends Component {
         <p className="App-intro">
           Places
         </p>
-        <div class="main flexbox-container">
-            <div class="left-nav">
-                <div class="search-container">
+        <div className="main flexbox-container">
+            <div className="left-nav">
+                <div className="search-container">
                     <Search />
                 </div>
-                <div class="navigation-container" style={{border: '1px solid black'}}>
+                <div className="navigation-container" style={{border: '1px solid black'}}>
                     <Navigation />
                 </div>
             </div>
-            <div class="map-container" style = {mapStyle}>
+            <div className="map-container" style = {mapStyle}>
                 <p></p>
-                <div class="map">
+                <div className="map">
                     <Map />
                 </div>
             </div>

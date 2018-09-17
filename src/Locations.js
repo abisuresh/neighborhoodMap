@@ -12,7 +12,7 @@ class Locations extends Component {
 
         return (
             <div>
-                <div class="locations-details">
+                <div className="locations-details">
                 </div>
             </div>
             )

@@ -42,6 +42,8 @@
 
 .navigation-bar li:hover{
   background-color: darkslategray;
+  border: 1px darkred;
+  cursor: pointer; 
 }
 
 .flexbox-container{

@@ -16,13 +16,13 @@ class Navigation extends Component {
         }
         return (
             <div>
-                <div class="navigation-bar" style = {{navigationStyle}}>
+                <div className="navigation-bar" style = {{navigationStyle}}>
                     <ul style={{listStyleType: 'none'}}>
                         <li> Portland, ME </li>
                         <li> Burlington, VT </li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li> Rome, Italy </li>
+                        <li> Barcelona, Spain </li>
+                        <li> San Diego, CA </li>
                     </ul>
                 </div>
             </div>
