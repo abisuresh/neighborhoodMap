@@ -18,7 +18,7 @@ class Navigation extends Component {
             </div>
         )
     }
-    
+
 }
 
 
