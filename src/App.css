@@ -11,7 +11,7 @@
   background-color: #222;
   height: 10%;
   padding: 20px;
-  color: white;
+  color: cadetblue;
 }
 
 .App-title {
@@ -33,12 +33,16 @@
 
 .search-bar{
 
-
 }
 
 .navigation-bar {
   background-color: black;
   color: white;
+}
+
+.navigation-bar ul li{
+  text-align: center;
+  align-content: center;
 }
 
 .navigation-bar li:hover{

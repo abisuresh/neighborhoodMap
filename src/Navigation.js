@@ -18,11 +18,11 @@ class Navigation extends Component {
             <div>
                 <div className="navigation-bar" style = {{navigationStyle}}>
                     <ul style={{listStyleType: 'none'}}>
-                        <li> Portland, ME </li>
-                        <li> Burlington, VT </li>
-                        <li> Rome, Italy </li>
-                        <li> Barcelona, Spain </li>
-                        <li> San Diego, CA </li>
+                        <li> Thai Dishes </li>
+                        <li> American Flatbread </li>
+                        <li> Sweetwaters </li>
+                        <li> Ri Ra's </li>
+                        <li> Sherpa Kitchen </li>
                     </ul>
                 </div>
             </div>

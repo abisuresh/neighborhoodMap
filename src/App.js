@@ -35,15 +35,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Google Map</h1>
+          <h1 className="App-title">Places to Eat in Burlington, VT</h1>
         </header>
         <p className="App-intro">
-          Places
         </p>
         <div className="main flexbox-container">
             <div className="left-nav">
                 <div className="nav-header">
-                    Travel Locations
+                    Restaurant Locations
                 </div>
                 <div className="search-container">
                     <Search />
