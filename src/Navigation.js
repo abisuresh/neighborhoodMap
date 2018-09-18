@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class Navigation extends Component {
 
@@ -7,9 +8,9 @@ class Navigation extends Component {
         query: ''
     }
 
-    //function that filters the restaurants and markers displayed on the map
+    //function that filters the list view of the restaurants displayed on the navigation
     filterFunction(query, index) {
-
+        // let matchesMarkers = query.match(regex);
         if(query==""){
             this.setState({restArray: this.state.restArray})
         }else if(query == this.state.restArray[0]){

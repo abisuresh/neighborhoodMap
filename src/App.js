@@ -7,7 +7,7 @@ import {GoogleMap, Marker } from 'react-google-maps';
 import GoogleMapReact from 'google-map-react'
 import Map from './Map'
 import Markers from './Markers'
-import LocationsAPI from './LocationsAPI'
+import * as LocationsAPI from './LocationsAPI'
 import Navigation from './Navigation'
 import Search from './Search'
 import './App.css';
@@ -24,8 +24,7 @@ class App extends Component {
       let location = {}
       // let map = new google.maps.Map()
       // let locationMarker = new google.maps.Marker()
-}
-
+    }
 
     // componentDidMount(){
     //     this.mount = true;
@@ -38,6 +37,20 @@ class App extends Component {
     //     })
     // }
 
+    componentDidMount(){
+        this.mount = true;
+        LocationsAPI.getData().then((locations) => {
+            this.setState({ locations })
+        })
+    }
+
+    //Function that filters the markers displayed on the map
+    markerFilter() {
+        //if query in filter is == "", show all markers
+        //if query in filter matches a letter contained in a restaurant, show only those markers
+        //return state to showing all if query is removed
+    }
+
   render() {
     const mapStyle={
         width: '95%',
@@ -49,7 +62,7 @@ class App extends Component {
     return (
       <div className="App">
         <header aria-labelledby="header" className="App-header">
-          <h1 tabIndex={0} className="App-title">Things to do in </h1>
+          <h1 tabIndex={0} className="App-title">Top places to eat </h1>
             <p tabIndex={0}>Burlington, VT (population 56,000) </p>
         </header>
         <p className="App-intro">
@@ -85,7 +98,6 @@ class App extends Component {
                     />
                 </div>
             </div>
-
 
         </div>
 

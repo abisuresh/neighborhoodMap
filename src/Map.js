@@ -3,6 +3,7 @@ import {GoogleApiWrapper} from 'google-maps-react';
 import GoogleMapReact from 'google-map-react'
 import {GoogleMap, Marker } from 'react-google-maps';
 import Search from './Search'
+import PropTypes from 'prop-types'
 
 class Map extends Component {
 
