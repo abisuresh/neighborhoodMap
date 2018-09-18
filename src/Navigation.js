@@ -3,6 +3,11 @@ import PropTypes from 'prop-types'
 
 class Navigation extends Component {
 
+    constructor (props){
+        super(props);
+        this.removeFilter= this.removeFilter.bind(this)
+    }
+
     state = {
         restArray: ["Thai Dishes", "American Flatbread", "Sweetwaters", "Ri Ra's", "Sherpa Kitchen"],
         query: ''
@@ -19,6 +24,11 @@ class Navigation extends Component {
         // if(this.props.query == marker){
         //     let filterResult = this.state.locations.filter()
         // }
+    }
+
+    removeFilter(){
+        console.log(this.state.query)
+        this.setState({query: ""})
     }
 
     render(){
@@ -39,12 +49,12 @@ class Navigation extends Component {
                                value = {this.state.query.bind}
                                onChange={(event) => {this.filterFunction(event.target.value)} }
                         />
-                        <button type="submit" onClick={this.filterFunction()}>Filter</button>
+                        <button type="submit" onClick={this.removeFilter}>Show All</button>
                     </div>
                 </div>
                 <div className="navigation-bar">
                     <ul role="list" aria-labelledby="places" style={{listStyleType: 'none'}}>
-                        {this.state.restArray.map(newRestArray => (<li> {newRestArray} </li>))}
+                        {this.props.restaurantDetails.map(newRestArray => (<li> {newRestArray.name} </li>))}
                     </ul>
                 </div>
             </div>

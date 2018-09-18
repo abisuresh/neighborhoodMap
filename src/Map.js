@@ -16,7 +16,7 @@ class Map extends Component {
 
     getGoogleMap(apiKEY, props) {
         const {latitude, longitude, width, height}= this.props
-        const markerLocation =  (props.markerLocation || []).map(marker => [
+        const markerLocation =  (this.props.markerLocation || []).map(marker => [
             `&markers=color:${marker.color || 'red'}`,
             `label:${(marker.label || ''). replace('|', '\\|')}`,
             `${marker.latitude},${marker.longitude}`

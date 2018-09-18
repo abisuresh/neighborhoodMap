@@ -8,6 +8,10 @@ class Markers extends Component {
 
     }
 
+    markerFilter(){
+        // this.props.locations.filter(visibleMarkers =>  );
+    }
+
 
     render(){
 

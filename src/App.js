@@ -15,9 +15,13 @@ import './App.css';
 class App extends Component {
 
     state = {
-        locations:[],
-        markerLocation: []
-
+        locations:[
+            {latitude: 44.475910, longitude: -73.213434, label: "A", color: "red", name: "Thai Dishes"},
+            {latitude: 44.476814, longitude: -73.213847, label: "B", color: "red", name: "American Flatbread"},
+            {latitude: 44.475773, longitude: -73.21533, label: "C", color: "red", name: "Sweetwaters"},
+            {latitude: 44.476904, longitude: -73.213243, label: "D", color: "red", name: "Ri Ra's"},
+            {latitude: 44.477003, longitude: -73.214876, label: "E", color: "red", name: "Sherpa Kitchen"}
+            ]
     }
 
      startMap(){
@@ -40,7 +44,7 @@ class App extends Component {
     componentDidMount(){
         this.mount = true;
         LocationsAPI.getData().then((locations) => {
-            this.setState({ locations })
+            this.setState({ similarLocations: locations })
         })
     }
 
@@ -76,7 +80,9 @@ class App extends Component {
                     {/*<Search />*/}
                 </div>
                 <div tabIndex={0} aria-labelledby="navigation" className="navigation-container" style={{border: '1px solid black'}}>
-                    <Navigation />
+                    <Navigation
+                        restaurantDetails = {this.state.locations}
+                    />
                 </div>
             </div>
             <div tabIndex={0} className="map-container" style = {mapStyle}>
@@ -88,13 +94,7 @@ class App extends Component {
                         text="Burlington"
                          width = "800"
                          height = "600"
-                         markerLocation= {[
-                               {latitude: 44.475910, longitude: -73.213434, label: "A", color: "red"},
-                                {latitude: 44.476814, longitude: -73.213847, label: "B", color: "red"},
-                                {latitude: 44.475773, longitude: -73.21533, label: "C", color: "red"},
-                                {latitude: 44.476904, longitude: -73.213243, label: "D", color: "red"},
-                                {latitude: 44.477003, longitude: -73.214876, label: "E", color: "red"}
-                            ]}
+                         markerLocation= {this.state.locations}
                     />
                 </div>
             </div>
