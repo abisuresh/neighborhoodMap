@@ -5,6 +5,7 @@ class Locations extends Component {
 
     state = {
 
+        locations: []
 
     }
 
@@ -14,8 +15,7 @@ class Locations extends Component {
         return (
             <div>
                 <div className="locations-details">
-                    {this.latitude}
-                    {this.longitude}
+                    //Foursquare API info
                 </div>
             </div>
             )
