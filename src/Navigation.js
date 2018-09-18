@@ -18,21 +18,12 @@ class Navigation extends Component {
     //function that filters the list view of the restaurants displayed on the navigation
     filterFunction(value, index) {
 
-        let matchesMarkers = value.name.match(this.state.query);
+        let matchesMarkers = value.name.toUpperCase().match(this.state.query.toUpperCase());
         if(matchesMarkers == null){
             return false
         }else{
             return true
         }
-
-        //if the first letter of query matches a restaurant in the names variable/rest array keep it visible
-
-        // if(this.state.query==""){
-        //     this.setState({restArray: this.state.restArray})
-        // }else if(value == this.state.query){
-        //     this.setState({restArray: []})
-        // }
-
     }
 
     removeFilter(){
