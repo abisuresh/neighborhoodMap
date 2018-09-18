@@ -33,10 +33,6 @@ class App extends Component {
         float: 'right'
     }
 
-    const {defaultCenter} = 44.47
-    const {defaultZoom} = 11
-
-
     return (
       <div className="App">
         <header className="App-header">
@@ -60,13 +56,6 @@ class App extends Component {
             <div className="map-container" style = {mapStyle}>
                 <p></p>
                 <div className="map" style={{height: '90vh', width: '80vh'}}>
-
-
-                    <GoogleMapReact
-                        bootstrapURLKeys = {{key: "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"}}
-                        defaultCenter = {this.props.center}
-                        defaultZoom = {this.props.zoom}>
-                    </GoogleMapReact>
                     <Map
                         lat = {44.4760983}
                         lng = {-73.2141478}

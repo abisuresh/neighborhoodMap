@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 
 class Search extends Component {
     state = {
+        locations: []
 
     }
+
+    filterFunction() {
+        const filterButton = {}
+        filterButton.onclick()
+    }
+
 
     render(){
         const searchBarStyle = {
@@ -15,6 +22,7 @@ class Search extends Component {
                 <div className="search-bar">
                     <div className="input-filter">
                         <input type="text" placeholder="Filter..." name="filter"/>
+                        <button type="submit">Filter</button>
 
                     </div>
                 </div>

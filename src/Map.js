@@ -31,8 +31,8 @@ class Map extends Component {
 
     static defaultProps = {
        center: {
-           lat: 0,
-           lng: 0
+           lat: 44.4760983,
+           lng: -73.2141478
        },
         zoom: 13
     };
@@ -40,16 +40,24 @@ class Map extends Component {
     render() {
         let {latitude, longitude, width, height, markerPin} = this.props
         const apiKEY = "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"
+        const AReactComponent = ({text}) => <div>{text}</div>
         return (
             <div>
+
                 <div className="map">
                     {/*<img src={this.getGoogleMap(apiKEY, this.props)} />*/}
                     {/*{this.getGoogleMap(apiKEY, this.props)}*/}
-                    {/*<GoogleMapReact*/}
-                        {/*bootstrapURLKeys = {{key: "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"}}*/}
-                        {/*defaultCenter = {this.props.center}*/}
-                        {/*defaultZoom = {this.props.zoom}>*/}
-                    {/*</GoogleMapReact>*/}
+                    <GoogleMapReact
+                        bootstrapURLKeys = {{key: "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"}}
+                        defaultCenter = {this.props.center}
+                        defaultZoom = {this.props.zoom}>
+
+                        <AReactComponent
+                            lat = {44.4760983}
+                            lng = {-73.2141478}
+                            text="Burlington"
+                        />
+                    </GoogleMapReact>
                 </div>
             </div>
 
