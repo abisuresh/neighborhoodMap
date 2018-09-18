@@ -7,7 +7,7 @@ import {GoogleMap, Marker } from 'react-google-maps';
 import GoogleMapReact from 'google-map-react'
 import Map from './Map'
 import Markers from './Markers'
-import Locations from './LocationsAPI'
+import LocationsAPI from './LocationsAPI'
 import Navigation from './Navigation'
 import Search from './Search'
 import './App.css';
@@ -26,6 +26,16 @@ class App extends Component {
 }
 
 
+    // componentDidMount(){
+    //     this.mount = true;
+    //     LocationsAPI.fetch("https://api.foursquare.com/v2/venues/VENUE_ID/similar").then(response  => response.json())
+    //         .then((resp) => {
+    //         this.setState({
+    //             isLoaded: true,
+    //             items: resp.items
+    //         })
+    //     })
+    // }
 
   render() {
     const mapStyle={

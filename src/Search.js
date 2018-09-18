@@ -7,8 +7,9 @@ class Search extends Component {
     }
 
     filterFunction() {
-        const filterButton = {}
-        filterButton.onclick()
+        // if(this.props.query == marker){
+        //     let filterResult = this.state.locations.filter()
+        // }
     }
 
 
@@ -22,8 +23,7 @@ class Search extends Component {
                 <div className="search-bar">
                     <div className="input-filter">
                         <input type="text" placeholder="Filter..." name="filter"/>
-                        <button type="submit">Filter</button>
-
+                        <button type="submit" onClick={this.filterFunction()}>Filter</button>
                     </div>
                 </div>
             </div>

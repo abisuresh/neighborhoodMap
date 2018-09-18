@@ -31,6 +31,10 @@
 
 }
 
+.map{
+  cursor: pointer;
+}
+
 .search-bar{
 
 }
@@ -81,6 +85,13 @@
 
 .nav-header{
   color: white;
+}
+
+footer{
+  background-color: darkgreen;
+  color: white;
+  text-align: center;
+  border: black 1px;
 }
 
 /*Media Queries*/

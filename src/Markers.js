@@ -4,6 +4,7 @@ class Markers extends Component {
 
     state = {
 
+        locations: []
 
     }
 

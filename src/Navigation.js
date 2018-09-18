@@ -3,8 +3,15 @@ import React, { Component } from 'react';
 class Navigation extends Component {
 
     state = {
-
+        restArray: ["Thai Dishes", "American Flatbread", "Sweetwaters", "Ri Ra's", "Sherpa Kitchen"]
     }
+
+    filterFunction() {
+        // if(this.props.query == marker){
+        //     let filterResult = this.state.locations.filter()
+        // }
+    }
+
 
     render(){
         // const navigationStyle = {
@@ -18,11 +25,7 @@ class Navigation extends Component {
             <div>
                 <div className="navigation-bar">
                     <ul role="list" aria-labelledby="places" style={{listStyleType: 'none'}}>
-                        <li> Thai Dishes </li>
-                        <li> American Flatbread </li>
-                        <li> Sweetwaters </li>
-                        <li> Ri Ra's </li>
-                        <li> Sherpa Kitchen </li>
+                        {this.state.restArray.filter(this.filterFunction).map(newRestArray => (<li> {newRestArray} </li>))}
                     </ul>
                 </div>
             </div>
