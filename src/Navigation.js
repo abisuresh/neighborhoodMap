@@ -17,7 +17,7 @@ class Navigation extends Component {
         return (
             <div>
                 <div className="navigation-bar">
-                    <ul style={{listStyleType: 'none'}}>
+                    <ul role="list" aria-labelledby="places" style={{listStyleType: 'none'}}>
                         <li> Thai Dishes </li>
                         <li> American Flatbread </li>
                         <li> Sweetwaters </li>

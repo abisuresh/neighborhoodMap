@@ -43,8 +43,7 @@ class Map extends Component {
         const AReactComponent = ({text}) => <div>{text}</div>
         return (
             <div>
-
-                <div className="map">
+                <div aria-labelledby="map" tabIndex={0} className="map">
                     {/*<img src={this.getGoogleMap(apiKEY, this.props)} />*/}
                     {/*{this.getGoogleMap(apiKEY, this.props)}*/}
                     <GoogleMapReact

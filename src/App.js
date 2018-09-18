@@ -35,8 +35,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Things to do in </h1>
+        <header aria-labelledby="header" className="App-header">
+          <h1 tabIndex={0} className="App-title">Things to do in </h1>
             <p>Burlington, VT (population 56,000) </p>
         </header>
         <p className="App-intro">
@@ -46,16 +46,16 @@ class App extends Component {
                 <div className="nav-header">
                     Restaurant Locations
                 </div>
-                <div className="search-container">
+                <div tabIndex={0} className="search-container">
                     <Search />
                 </div>
-                <div className="navigation-container" style={{border: '1px solid black'}}>
+                <div tabIndex={0} aria-labelledby="navigation" className="navigation-container" style={{border: '1px solid black'}}>
                     <Navigation />
                 </div>
             </div>
-            <div className="map-container" style = {mapStyle}>
+            <div tabIndex={0} className="map-container" style = {mapStyle}>
                 <p></p>
-                <div className="map" style={{height: '90vh', width: '80vh'}}>
+                <div tabIndex={0} className="map" style={{height: '90vh', width: '80vh'}}>
                     <Map
                         lat = {44.4760983}
                         lng = {-73.2141478}
