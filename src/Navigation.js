@@ -12,7 +12,7 @@ class Navigation extends Component {
             height: '100%',
             float: 'left',
             border: 'solid 1px black',
-            listStyleType: 'none'
+            // listStyleType: 'none'
         }
         return (
             <div>

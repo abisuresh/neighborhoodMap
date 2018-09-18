@@ -43,12 +43,14 @@
 .navigation-bar ul li{
   text-align: center;
   align-content: center;
+  border-radius: 4em 4em;
 }
 
-.navigation-bar li:hover{
+.navigation-bar ul li:hover{
   background-color: darkslategray;
   border: 1px darkred;
   cursor: pointer;
+  align-content: left;
 }
 
 .flexbox-container{
@@ -63,6 +65,7 @@
 
 .input-filter input[type=text]{
   font-size: large;
+  text-align: center;
 
 }
 

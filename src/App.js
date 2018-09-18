@@ -4,6 +4,7 @@ import { Route } from 'react-router'
 import { Link } from 'react-router'
 import {GoogleApiWrapper} from 'google-maps-react';
 import {GoogleMap, Marker } from 'react-google-maps';
+import GoogleMapReact from 'google-map-react'
 import Map from './Map'
 import Markers from './Markers'
 import Locations from './Locations'
@@ -32,10 +33,13 @@ class App extends Component {
         float: 'right'
     }
 
+    const {defaultCenter} = 44.47
+    const {defaultZoom} = 11
+
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Best Places to Eat </h1>
+          <h1 className="App-title">Things to do in </h1>
             <p>Burlington, VT (population 56,000) </p>
         </header>
         <p className="App-intro">
@@ -54,19 +58,27 @@ class App extends Component {
             </div>
             <div className="map-container" style = {mapStyle}>
                 <p></p>
-                <div className="map">
+                <div className="map" style={{height: '90vh', width: '80vh'}}>
+
+
+                    <GoogleMapReact
+                        bootstrapURLKeys = {{key: "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"}}
+                        defaultCenter = {this.props.center}
+                        defaultZoom = {this.props.zoom}>
+                    </GoogleMapReact>
                     <Map
-                        latitude = "44.4760983"
-                        longitude = "-73.2141478"
-                        width = "800"
-                        height = "600"
-                        markerLocation= {[
-                              {latitude: 44.475910, longitude: -73.213434, label: "A", color: "red"},
-                              {latitude: 44.476814, longitude: -73.213847, label: "B", color: "red"},
-                              {latitude: 44.475773, longitude: -73.21533, label: "C", color: "red"},
-                              {latitude: 44.476904, longitude: -73.213243, label: "D", color: "red"},
-                              {latitude: 44.477003, longitude: -73.214876, label: "E", color: "red"}
-                          ]}
+                        lat = {44.4760983}
+                        lng = {-73.2141478}
+                        text="Burlington"
+                        // width = "800"
+                        // height = "600"
+                        // markerLocation= {[
+                        //       {latitude: 44.475910, longitude: -73.213434, label: "A", color: "red"},
+                        //       {latitude: 44.476814, longitude: -73.213847, label: "B", color: "red"},
+                        //       {latitude: 44.475773, longitude: -73.21533, label: "C", color: "red"},
+                        //       {latitude: 44.476904, longitude: -73.213243, label: "D", color: "red"},
+                        //       {latitude: 44.477003, longitude: -73.214876, label: "E", color: "red"}
+                        //   ]}
                     />
                 </div>
             </div>

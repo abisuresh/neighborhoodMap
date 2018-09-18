@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {GoogleApiWrapper} from 'google-maps-react';
+import GoogleMapReact from 'google-map-react'
 import {GoogleMap, Marker } from 'react-google-maps';
 import Search from './Search'
 
@@ -7,6 +8,7 @@ class Map extends Component {
 
     state = {}
 
+    //creating static map
     //utilized general setup of the following code to create static map URL
     // https://gist.github.com/ConnectExtend/c9c65e1f9b84886ff7f5a07c96320c5a
 
@@ -24,21 +26,30 @@ class Map extends Component {
         return `https://maps.googleapis.com/maps/api/staticmap?center=${props.latitude},${props.longitude}&zoom=13&size=${props.width}x${props.height}&maptype=${props.type || "roadmap"}${markerLocation.join("")}&key=${apiKEY}`
     }
 
+    //Creating dynamic map using Google React Map
+    //Utilized https://www.npmjs.com/package/google-map-react
+
+    static defaultProps = {
+       center: {
+           lat: 0,
+           lng: 0
+       },
+        zoom: 13
+    };
+
     render() {
-        // const mapStyle={
-        //     width: '80%',
-        //     height: '100%',
-        //     border: '1px solid black',
-        //     float: 'right',
-        //     padding: '1%'
-        // }
         let {latitude, longitude, width, height, markerPin} = this.props
         const apiKEY = "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"
         return (
             <div>
                 <div className="map">
-                    <img src={this.getGoogleMap(apiKEY, this.props)} />
-                    {this.getGoogleMap(apiKEY, this.props)}
+                    {/*<img src={this.getGoogleMap(apiKEY, this.props)} />*/}
+                    {/*{this.getGoogleMap(apiKEY, this.props)}*/}
+                    {/*<GoogleMapReact*/}
+                        {/*bootstrapURLKeys = {{key: "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"}}*/}
+                        {/*defaultCenter = {this.props.center}*/}
+                        {/*defaultZoom = {this.props.zoom}>*/}
+                    {/*</GoogleMapReact>*/}
                 </div>
             </div>
 
