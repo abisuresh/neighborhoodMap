@@ -7,16 +7,16 @@ class Navigation extends Component {
     }
 
     render(){
-        const navigationStyle = {
-            width: '100%',
-            height: '100%',
-            float: 'left',
-            border: 'solid 1px black',
-            // listStyleType: 'none'
-        }
+        // const navigationStyle = {
+        //     width: '100%',
+        //     height: '100%',
+        //     float: 'left',
+        //     border: 'solid 1px black',
+        //     // listStyleType: 'none'
+        // }
         return (
             <div>
-                <div className="navigation-bar" style = {{navigationStyle}}>
+                <div className="navigation-bar">
                     <ul style={{listStyleType: 'none'}}>
                         <li> Thai Dishes </li>
                         <li> American Flatbread </li>

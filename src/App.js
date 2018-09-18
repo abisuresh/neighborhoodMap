@@ -36,6 +36,7 @@ class App extends Component {
     const {defaultCenter} = 44.47
     const {defaultZoom} = 11
 
+
     return (
       <div className="App">
         <header className="App-header">
