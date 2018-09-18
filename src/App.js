@@ -15,7 +15,8 @@ import './App.css';
 class App extends Component {
 
     state = {
-        locations:[]
+        locations:[],
+        markerLocation: []
 
     }
 
@@ -59,7 +60,7 @@ class App extends Component {
                     Restaurant Locations
                 </div>
                 <div tabIndex={0} className="search-container">
-                    <Search />
+                    {/*<Search />*/}
                 </div>
                 <div tabIndex={0} aria-labelledby="navigation" className="navigation-container" style={{border: '1px solid black'}}>
                     <Navigation />
