@@ -60,6 +60,13 @@ class App extends Component {
                         longitude = "-73.2141478"
                         width = "800"
                         height = "600"
+                        markerLocation= {[
+                              {latitude: 44.475910, longitude: -73.213434, label: "A", color: "red"},
+                              {latitude: 44.476814, longitude: -73.213847, label: "B", color: "red"},
+                              {latitude: 44.475773, longitude: -73.21533, label: "C", color: "red"},
+                              {latitude: 44.476904, longitude: -73.213243, label: "D", color: "red"},
+                              {latitude: 44.477003, longitude: -73.214876, label: "E", color: "red"}
+                          ]}
                     />
                 </div>
             </div>

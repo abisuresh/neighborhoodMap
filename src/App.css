@@ -11,7 +11,7 @@
   background-color: #222;
   height: 10%;
   padding: 20px;
-  color: cadetblue;
+  color: white;
 }
 
 .App-title {
@@ -37,7 +37,7 @@
 
 .navigation-bar {
   background-color: black;
-  color: white;
+  color: #61892F;
 }
 
 .navigation-bar ul li{
@@ -58,6 +58,7 @@
 
 .main{
   padding-left: 1%;
+  overflow-x: hidden;
 }
 
 .input-filter input[type=text]{
