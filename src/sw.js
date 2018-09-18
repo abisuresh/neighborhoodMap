@@ -4,13 +4,13 @@
 // https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network
 
 //Cache-ing images and pages
-var cacheName = "Restaurants";
+var cacheName = "Map";
 var pagesToCache = [
     '/',
     '/src/App.css',
     '/src/App.js',
     '/src/index.css',
-    '/src/Locations.js',
+    '/src/LocationsAPI.js',
     '/src/Markers.js',
     '/src/Map.js',
     '/src/Navigation.js',

@@ -44,19 +44,19 @@ class Map extends Component {
         return (
             <div>
                 <div aria-labelledby="map" tabIndex={0} className="map">
-                    {/*<img src={this.getGoogleMap(apiKEY, this.props)} />*/}
-                    {/*{this.getGoogleMap(apiKEY, this.props)}*/}
-                    <GoogleMapReact
-                        bootstrapURLKeys = {{key: "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"}}
-                        defaultCenter = {this.props.center}
-                        defaultZoom = {this.props.zoom}>
+                    <img src={this.getGoogleMap(apiKEY, this.props)} />
+                    {this.getGoogleMap(apiKEY, this.props)}
+                    {/*<GoogleMapReact*/}
+                        {/*bootstrapURLKeys = {{key: "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"}}*/}
+                        {/*defaultCenter = {this.props.center}*/}
+                        {/*defaultZoom = {this.props.zoom}>*/}
 
-                        <AReactComponent
-                            lat = {44.4760983}
-                            lng = {-73.2141478}
-                            text="Burlington"
-                        />
-                    </GoogleMapReact>
+                        {/*<AReactComponent*/}
+                            {/*lat = {44.4760983}*/}
+                            {/*lng = {-73.2141478}*/}
+                            {/*text="Burlington"*/}
+                        {/*/>*/}
+                    {/*</GoogleMapReact>*/}
                 </div>
             </div>
 
