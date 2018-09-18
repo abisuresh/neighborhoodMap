@@ -35,7 +35,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Places to Eat in Burlington, VT</h1>
+          <h1 className="App-title">Best Places to Eat </h1>
+            <p>Burlington, VT (population 56,000) </p>
         </header>
         <p className="App-intro">
         </p>
@@ -54,7 +55,12 @@ class App extends Component {
             <div className="map-container" style = {mapStyle}>
                 <p></p>
                 <div className="map">
-                    <Map />
+                    <Map
+                        latitude = "44.4760983"
+                        longitude = "-73.2141478"
+                        width = "800"
+                        height = "600"
+                    />
                 </div>
             </div>
 

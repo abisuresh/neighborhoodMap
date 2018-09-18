@@ -39,8 +39,7 @@ class Map extends Component {
         return (
             <div>
                 <div className="map">
-                    <img src="{this.getGoogleMap(apiKEY, this.props)}" />
-                    {this.getGoogleMap(apiKEY, this.props)}
+                    <img src={this.getGoogleMap(apiKEY, this.props)} />
                 </div>
             </div>
 
