@@ -6,6 +6,8 @@ class Navigation extends Component {
     constructor (props){
         super(props);
         this.removeFilter= this.removeFilter.bind(this)
+        this.handleQueryChange= this.handleQueryChange.bind(this)
+        this.filterFunction= this.filterFunction.bind(this)
     }
 
     state = {
@@ -14,16 +16,23 @@ class Navigation extends Component {
     }
 
     //function that filters the list view of the restaurants displayed on the navigation
-    filterFunction(query, index) {
-        // let matchesMarkers = query.match(regex);
-        if(query==""){
-            this.setState({restArray: this.state.restArray})
-        }else if(query == this.state.restArray[0]){
-            this.setState({restArray: []})
+    filterFunction(value, index) {
+
+        let matchesMarkers = value.name.match(this.state.query);
+        if(matchesMarkers == null){
+            return false
+        }else{
+            return true
         }
-        // if(this.props.query == marker){
-        //     let filterResult = this.state.locations.filter()
+
+        //if the first letter of query matches a restaurant in the names variable/rest array keep it visible
+
+        // if(this.state.query==""){
+        //     this.setState({restArray: this.state.restArray})
+        // }else if(value == this.state.query){
+        //     this.setState({restArray: []})
         // }
+
     }
 
     removeFilter(){
@@ -31,14 +40,11 @@ class Navigation extends Component {
         this.setState({query: ""})
     }
 
+    handleQueryChange(event){
+        this.setState({query: event.target.value})
+    }
+
     render(){
-        // const navigationStyle = {
-        //     width: '100%',
-        //     height: '100%',
-        //     float: 'left',
-        //     border: 'solid 1px black',
-        //     // listStyleType: 'none'
-        // }
 
         const {markerLocation} = [this.props]
         return (
@@ -46,15 +52,15 @@ class Navigation extends Component {
                 <div className="search-bar">
                     <div className="input-filter">
                         <input type="text" placeholder="Filter..." name="filter"
-                               value = {this.state.query.bind}
-                               onChange={(event) => {this.filterFunction(event.target.value)} }
+                               value = {this.state.query}
+                               onChange= {this.handleQueryChange}
                         />
                         {/*<button type="submit" onClick={this.removeFilter}>Show All</button>*/}
                     </div>
                 </div>
                 <div className="navigation-bar">
                     <ul role="list" aria-labelledby="places" style={{listStyleType: 'none'}}>
-                        {this.props.restaurantDetails.map(newRestArray => (<li> {newRestArray.name} </li>))}
+                        {this.props.restaurantDetails.filter(this.filterFunction).map(newRestArray => (<li> {newRestArray.name} </li>))}
                     </ul>
                 </div>
             </div>
