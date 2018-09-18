@@ -49,7 +49,7 @@ class Navigation extends Component {
                                value = {this.state.query.bind}
                                onChange={(event) => {this.filterFunction(event.target.value)} }
                         />
-                        <button type="submit" onClick={this.removeFilter}>Show All</button>
+                        {/*<button type="submit" onClick={this.removeFilter}>Show All</button>*/}
                     </div>
                 </div>
                 <div className="navigation-bar">
