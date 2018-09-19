@@ -16,7 +16,7 @@ class Navigation extends Component {
     }
 
     //function that filters the list view of the restaurants displayed on the navigation
-    filterFunction(value, index) {
+    filterFunction(value) {
 
         let matchesMarkers = value.name.toUpperCase().match(this.state.query.toUpperCase());
         if(matchesMarkers == null){
@@ -51,7 +51,7 @@ class Navigation extends Component {
                 </div>
                 <div className="navigation-bar">
                     <ul role="list" aria-labelledby="places" style={{listStyleType: 'none'}}>
-                        {this.props.restaurantDetails.filter(this.filterFunction).map(newRestArray => (<li> {newRestArray.name} </li>))}
+                        {this.props.restaurantDetails.filter(this.filterFunction).map(newRestArray => (<li key= {newRestArray.ID}> {newRestArray.name} </li>))}
                     </ul>
                 </div>
             </div>

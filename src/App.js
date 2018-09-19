@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router'
 import { Route } from 'react-router'
 import { Link } from 'react-router'
-import {GoogleApiWrapper} from 'google-maps-react';
-import {GoogleMap, Marker } from 'react-google-maps';
-import GoogleMapReact from 'google-map-react'
 import MapComp from './Map'
 import Markers from './Markers'
 import * as LocationsAPI from './LocationsAPI'
@@ -16,11 +13,11 @@ class App extends Component {
 
     state = {
         locations:[
-            {latitude: 44.475910, longitude: -73.213434, label: "A", color: "red", name: "Thai Dishes"},
-            {latitude: 44.476814, longitude: -73.213847, label: "B", color: "red", name: "American Flatbread"},
-            {latitude: 44.475773, longitude: -73.21533, label: "C", color: "red", name: "Sweetwaters"},
-            {latitude: 44.476904, longitude: -73.213243, label: "D", color: "red", name: "Ri Ra's"},
-            {latitude: 44.477003, longitude: -73.214876, label: "E", color: "red", name: "Sherpa Kitchen"}
+            {latitude: 44.475910, longitude: -73.213434, label: "A", color: "red", name: "Thai Dishes", ID: "53da7401498eec845e38b417"},
+            {latitude: 44.476814, longitude: -73.213847, label: "B", color: "red", name: "American Flatbread", ID: "4af3a181f964a520fcee21e3"},
+            {latitude: 44.475773, longitude: -73.21533, label: "C", color: "red", name: "Sweetwaters", ID: "4b19d11af964a520bbe423e3"},
+            {latitude: 44.476904, longitude: -73.213243, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3"},
+            {latitude: 44.477003, longitude: -73.214876, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69"}
             ]
     }
 
@@ -41,12 +38,12 @@ class App extends Component {
     //     })
     // }
 
-    componentDidMount(){
-        this.mount = true;
-        LocationsAPI.getData().then((locations) => {
-            this.setState({ similarLocations: locations })
-        })
-    }
+    // componentDidMount(){
+    //     this.mount = true;
+    //     LocationsAPI.getData().then((locations) => {
+    //         this.setState({ similarLocations: locations })
+    //     })
+    // }
 
     //Function that filters the markers displayed on the map
     markerFilter() {
@@ -97,7 +94,7 @@ class App extends Component {
                     />
                 </div>
             </div>
-            <div class="footer">
+            <div className="footer">
                 This website is a react Google Maps website created by Abbi Devins-Suresh
             </div>
 

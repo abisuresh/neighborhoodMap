@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import GoogleMapReact from 'google-map-react'
-// import {GoogleMap, Marker } from 'react-google-maps';
 import Search from './Search'
+import * as LocationsAPI from './LocationsAPI'
 import PropTypes from 'prop-types'
 
 //Creating dynamic map using Google React Map
@@ -32,10 +31,20 @@ export class MapComp extends Component {
             })
         }
     }
+
+    //Call to Foursquare API
+    //Converting JSON from API to HTML
+
+    componentDidMount(){
+        this.mount = true;
+        LocationsAPI.getData(this.props.markerLocation[0].ID).then((locations) => {
+            this.setState({ similarLocations: locations })
+        })
+    }
+
     //creating static map
     //utilized general setup of the following code to create static map URL
     // https://gist.github.com/ConnectExtend/c9c65e1f9b84886ff7f5a07c96320c5a
-
 
     getGoogleMap(apiKEY, props) {
         const {latitude, longitude, width, height} = this.props
@@ -48,7 +57,6 @@ export class MapComp extends Component {
 
         return `https://maps.googleapis.com/maps/api/staticmap?center=${props.latitude},${props.longitude}&zoom=13&size=${props.width}x${props.height}&maptype=${props.type || "roadmap"}${markerLocation.join("")}&key=${apiKEY}`
     }
-
 
 
     render() {
@@ -66,7 +74,7 @@ export class MapComp extends Component {
                  onClick={this.onMapClicked}>
                 {/*<Marker onClick={this.onMarkerClick}*/}
                         {/*name={'Current location'} />*/}
-                {this.props.markerLocation.map(newMarker => (<Marker
+                {this.props.markerLocation.map(newMarker => (<Marker key={newMarker.ID}
                     position={{ lat: newMarker.latitude , lng: newMarker.longitude }}
                     name ={newMarker.name}
                     title = {newMarker.name}
