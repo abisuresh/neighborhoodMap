@@ -53,12 +53,12 @@ class App extends Component {
     }
 
   render() {
-    const mapStyle={
-        width: '95%',
-        height: '100%',
-        float: 'right',
-        overflowX: 'hidden'
-    }
+    // const mapStyle={
+    //     width: '95%',
+    //     height: '100%',
+    //     float: 'right',
+    //     overflowX: 'hidden'
+    // }
 
     return (
       <div className="App">
@@ -82,7 +82,7 @@ class App extends Component {
                     />
                 </div>
             </div>
-            <div tabIndex={0} className="map-container" style = {mapStyle}>
+            <div tabIndex={0} className="map-container">
                 <div tabIndex={0} className="map" >
                     <MapComp
                         // latitude = {44.4760983}
@@ -94,12 +94,14 @@ class App extends Component {
                     />
                 </div>
             </div>
-            <div className="footer">
-                This website is a react Google Maps website created by Abbi Devins-Suresh
-            </div>
+
+            {/*<div className="footer">*/}
+                {/*<footer>*/}
+                {/*This website is a react Google Maps website created by Abbi Devins-Suresh*/}
+                {/*</footer>*/}
+            {/*</div>*/}
 
         </div>
-
       </div>
     );
   }

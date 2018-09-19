@@ -17,7 +17,6 @@ class Navigation extends Component {
 
     //function that filters the list view of the restaurants displayed on the navigation
     filterFunction(value) {
-
         let matchesMarkers = value.name.toUpperCase().match(this.state.query.toUpperCase());
         if(matchesMarkers == null){
             return false
