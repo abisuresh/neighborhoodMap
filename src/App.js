@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 import {GoogleApiWrapper} from 'google-maps-react';
 import {GoogleMap, Marker } from 'react-google-maps';
 import GoogleMapReact from 'google-map-react'
-import Map from './Map'
+import MapComp from './Map'
 import Markers from './Markers'
 import * as LocationsAPI from './LocationsAPI'
 import Navigation from './Navigation'
@@ -59,8 +59,8 @@ class App extends Component {
     const mapStyle={
         width: '95%',
         height: '100%',
-        border: '1px solid black',
-        float: 'right'
+        float: 'right',
+        overflowX: 'hidden'
     }
 
     return (
@@ -69,8 +69,8 @@ class App extends Component {
           <h1 tabIndex={0} className="App-title">Top places to eat </h1>
             <p tabIndex={0}>Burlington, VT (population 56,000) </p>
         </header>
-        <p className="App-intro">
-        </p>
+        {/*<p className="App-intro">*/}
+        {/*</p>*/}
         <div className="main flexbox-container">
             <div className="left-nav">
                 <div className="nav-header">
@@ -86,17 +86,19 @@ class App extends Component {
                 </div>
             </div>
             <div tabIndex={0} className="map-container" style = {mapStyle}>
-                <p></p>
-                <div tabIndex={0} className="map" style={{height: '90vh', width: '80vh'}}>
-                    <Map
-                        latitude = {44.4760983}
-                        longitude = {-73.2141478}
-                        text="Burlington"
-                         width = "800"
-                         height = "600"
+                <div tabIndex={0} className="map" >
+                    <MapComp
+                        // latitude = {44.4760983}
+                        // longitude = {-73.2141478}
+                        // text="Burlington"
+                        //  width = "800"
+                        //  height = "600"
                          markerLocation= {this.state.locations}
                     />
                 </div>
+            </div>
+            <div class="footer">
+                This website is a react Google Maps website created by Abbi Devins-Suresh
             </div>
 
         </div>
