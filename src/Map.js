@@ -4,7 +4,7 @@ import Search from './Search'
 import * as LocationsAPI from './LocationsAPI'
 import PropTypes from 'prop-types'
 
-//Creating dynamic map using Google React Map
+//Creating dynamic map using Google Maps React npm package
 //https://www.npmjs.com/package/google-maps-react
 
 export class MapComp extends Component {
@@ -37,10 +37,27 @@ export class MapComp extends Component {
 
     componentDidMount(){
         this.mount = true;
-        LocationsAPI.getData(this.props.markerLocation[0].ID).then((locations) => {
-            this.setState({ similarLocations: locations })
-        })
+        // LocationsAPI.getData(this.props.markerLocation[0].ID).then((locations) => {
+        //     this.setState({ similarLocations: locations })
+        // })
+
+        //for loop to go through each restaurant in the array and return it's data
+
+        for(let i=0; i < this.props.markerLocation.length; i++){
+            LocationsAPI.getData(this.props.markerLocation[i].ID).then((locations) => {
+                this.setState({similarLocations: locations})
+            })
+        }
     }
+
+
+    // loopRestaurants(index){
+    //     for(let i=0; i < this.props.markerLocation.length; i ++){
+    //         LocationsAPI.getData(this.props.markerLocation[index].ID. then((locations) => {
+    //             this.setState({similarLocations: locations})
+    //         }))
+    //     }
+    // }
 
     //Converting JSON from API to HTML
     //https://www.w3schools.com/js/js_json_html.asp
