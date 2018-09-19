@@ -25,11 +25,6 @@ html, body {padding:0; margin:0; height:100%;}
   font-size: small;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .map-container{
     width: 50%;
     height: 800px;
@@ -82,7 +77,7 @@ html, body {padding:0; margin:0; height:100%;}
 .main{
   overflow-x: hidden;
     padding:0; margin:0; height:100%;
-    background: black; 
+    background: black;
 }
 
 .input-filter input[type=text]{
@@ -100,21 +95,6 @@ html, body {padding:0; margin:0; height:100%;}
 .nav-header{
   color: white;
 }
-
-/*.footer{*/
-  /*background-color: darkgreen;*/
-  /*position: absolute;*/
-  /*bottom: 0;*/
-  /*text-align: center;*/
-  /*align-content: center;*/
-  /*color: white;*/
-  /*border: black 1px;*/
-    /*width: 100%;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*flex-wrap: wrap;*/
-    /*overflow: hidden;*/
-/*}*/
 
 footer{
     background-color: darkgreen;

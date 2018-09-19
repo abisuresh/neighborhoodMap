@@ -33,7 +33,7 @@ export class MapComp extends Component {
     }
 
     //Call to Foursquare API
-    //Converting JSON from API to HTML
+
 
     componentDidMount(){
         this.mount = true;
@@ -41,6 +41,32 @@ export class MapComp extends Component {
             this.setState({ similarLocations: locations })
         })
     }
+
+    //Converting JSON from API to HTML
+    //https://www.w3schools.com/js/js_json_html.asp
+    //
+    // parseJSON(){
+    //     obj = {table: "Restaurant details", limit: 10};
+    //     dbParam = JSON.stringify(obj);
+    //     xmlhttp = new XMLHttpRequest();
+    //     xmlhttp.onreadystatechange = function(){
+    //         if (this.readyState == 4 && this.status == 200){
+    //             fsAPI = JSON.parse(this.responseText);
+    //             txt += "<select>"
+    //             for (x in fsAPI) {
+    //                 txt += "<option>" + fsAPI[x].name;
+    //             }
+    //             txt += "</select>"
+    //             document.getElementById("demo").innerHTML = txt;
+    //         }
+    //     }
+    //
+    //     xmlhttp.open("POST", true); //need file
+    //     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //     xmlhttp.send("x=" + dbParam);
+    // }
+
+
 
     //creating static map
     //utilized general setup of the following code to create static map URL
