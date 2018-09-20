@@ -8,11 +8,15 @@ class Navigation extends Component {
         this.removeFilter= this.removeFilter.bind(this)
         this.handleQueryChange= this.handleQueryChange.bind(this)
         this.filterFunction= this.filterFunction.bind(this)
+        // this.listClicked. this.listClicked.bind(this)
+        this.state = {
+            activeIndex: 0
+        }
     }
 
     state = {
         restArray: ["Thai Dishes", "American Flatbread", "Sweetwaters", "Ri Ra's", "Sherpa Kitchen"],
-        query: ''
+        query: '',
     }
 
     //function that filters the list view of the restaurants displayed on the navigation
@@ -34,6 +38,8 @@ class Navigation extends Component {
         this.setState({query: event.target.value})
     }
 
+
+
     render(){
 
         const {markerLocation} = [this.props]
@@ -50,7 +56,11 @@ class Navigation extends Component {
                 {/*</div>*/}
                 <div className="navigation-bar">
                     <ul role="list" aria-labelledby="places" style={{listStyleType: 'none'}}>
-                        {this.props.restaurantDetails.filter(this.props.filterFunction).map(newRestArray => (<li key= {newRestArray.ID}> {newRestArray.name} </li>))}
+                        {this.props.restaurantDetails.filter(this.props.filterFunction).map(newRestArray => (<li
+                            // onClick={() => this.listClicked(0)}
+                            // className={this.state.activeIndex !== 0 ? 'unclicked' : 'clicked'}
+                            onClick={ this.props.listClicked }
+                            key= {newRestArray.ID}> {newRestArray.name} </li>))}
                     </ul>
                 </div>
             </div>

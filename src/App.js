@@ -14,6 +14,7 @@ class App extends Component {
         super(props);
         this.filterFunction = this.filterFunction.bind(this)
         this.handleQueryChange = this.handleQueryChange.bind(this)
+        this.listClicked = this.listClicked.bind(this)
         // for(let i=0; i<props.markerLocation.length; i++){
         //
         // }
@@ -27,7 +28,9 @@ class App extends Component {
             {latitude: 44.4769, longitude: -73.2127, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3"},
             {latitude: 44.4768, longitude: -73.2151, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69"}
             ],
-        query: ''
+        query: '',
+
+        clickedLocations: []
     }
 
      startMap(){
@@ -48,6 +51,26 @@ class App extends Component {
 
     handleQueryChange(event){
         this.setState({query: event.target.value})
+    }
+
+    // listClicked(event){
+    //     // this.setState({
+    //     //     activeIndex: index
+    //     // })
+    //     this.state.locations.map(newColorMarker => newColorMarker.name == event.target.textContent.trim()){
+    //         this.state.locations.color = 'green'
+    //     }
+    // }
+
+    listClicked(event){
+        for(let i=0; i< this.state.locations.length; i++){
+            const loc = this.state.locations[i]
+            if(loc.name === event.target.textContent.trim()){
+                const newLocationsList = this.state.locations.slice()
+                newLocationsList[i]= Object.assign(loc, {color: 'green'})
+                this.setState({locations: newLocationsList})
+            }
+        }
     }
 
     // componentDidMount(){
@@ -105,6 +128,8 @@ class App extends Component {
                     <Navigation
                         restaurantDetails = {this.state.locations}
                         filterFunction = {this.filterFunction}
+                        markerLocation= {this.state.locations}
+                        listClicked = {this.listClicked}
                     />
                 </div>
             </div>

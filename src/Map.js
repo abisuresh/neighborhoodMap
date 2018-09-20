@@ -119,6 +119,10 @@ export class MapComp extends Component {
                             <Marker key={newMarker.ID}
                                     position={{ lat: newMarker.latitude , lng: newMarker.longitude }}
                                     name ={newMarker.name}
+                                    //https://medium.com/@letian1997/how-to-change-javascript-google-map-marker-color-8a72131d1207?source=userActivityShare-132a3f83f2e2-1537478743
+                                    icon={{
+                                        url:`https://maps.google.com/mapfiles/ms/icons/${newMarker.color}-dot.png`
+                            }}
                                     title = {newMarker.name}
                                     onClick={this.onMarkerClick}
                             />
@@ -127,6 +131,9 @@ export class MapComp extends Component {
 
                 {this.props.markerLocation.map(newMarker => {
                     let contactInfo = LocationsAPI.getData(newMarker.ID)
+                    if(contactInfo == null){
+                        contactInfo = 'Data not loading'
+                    }
                     return (
                         <InfoWindow
                             marker={this.state.activeMarker}

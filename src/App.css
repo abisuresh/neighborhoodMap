@@ -96,6 +96,10 @@ html, body {padding:0; margin:0; height:100%;}
   color: white;
 }
 
+.clicked{
+  color: green;
+}
+
 footer{
     background-color: darkgreen;
     position: absolute;
