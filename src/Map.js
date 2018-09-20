@@ -9,12 +9,14 @@ import PropTypes from 'prop-types'
 
 export class MapComp extends Component {
 
-    constructor (props) {
-        super(props);
-        // for(let i=0; i<props.markerLocation.length; i++){
-        //
-        // }
-    }
+    // constructor (props) {
+    //     super(props);
+    //     this.markerFilterFunction = this.markerFilterFunction.bind(this)
+    //     this.filterFunction = this.filterFunction.bind(this)
+    //     // for(let i=0; i<props.markerLocation.length; i++){
+    //     //
+    //     // }
+    // }
 
     state = {
         showingInfoWindow:false,
@@ -40,6 +42,24 @@ export class MapComp extends Component {
     }
 
 
+    //function that filters the list view of the restaurants displayed on the navigation
+    markerFilterFunction(value) {
+        // if(this.filterFunction == false){
+        //     return true
+        //
+        // }else if(this.filterFunction ==true){
+        //     return true
+        //
+        // }
+
+        return true
+        // let matchesMarkers = value.name.toUpperCase().match(this.state.query.toUpperCase());
+        // if(matchesMarkers == null){
+        //     return false
+        // }else{
+        //     return true
+        // }
+    }
     //Call to Foursquare API
 
 
@@ -94,7 +114,7 @@ export class MapComp extends Component {
                  onClick={this.onMapClicked}>
                 {/*<Marker onClick={this.onMarkerClick}*/}
                 {/*name={'Current location'} />*/}
-                {this.props.markerLocation.map(newMarker => {
+                {this.props.restaurantDetails.filter(this.props.filterFunction).map(newMarker => {
                     return (
                             <Marker key={newMarker.ID}
                                     position={{ lat: newMarker.latitude , lng: newMarker.longitude }}

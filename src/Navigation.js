@@ -17,8 +17,8 @@ class Navigation extends Component {
 
     //function that filters the list view of the restaurants displayed on the navigation
     filterFunction(value) {
-        let matchesMarkers = value.name.toUpperCase().match(this.state.query.toUpperCase());
-        if(matchesMarkers == null){
+        let matchesFilters = value.name.toUpperCase().match(this.state.query.toUpperCase());
+        if(matchesFilters == null){
             return false
         }else{
             return true
@@ -39,18 +39,18 @@ class Navigation extends Component {
         const {markerLocation} = [this.props]
         return (
             <div>
-                <div className="search-bar">
-                    <div className="input-filter">
-                        <input type="text" placeholder="Filter..." name="filter"
-                               value = {this.state.query}
-                               onChange= {this.handleQueryChange}
-                        />
-                        {/*<button type="submit" onClick={this.removeFilter}>Show All</button>*/}
-                    </div>
-                </div>
+                {/*<div className="search-bar">*/}
+                    {/*<div className="input-filter">*/}
+                        {/*<input type="text" placeholder="Filter..." name="filter"*/}
+                               {/*value = {this.state.query}*/}
+                               {/*onChange= {this.handleQueryChange}*/}
+                        {/*/>*/}
+                        {/*/!*<button type="submit" onClick={this.removeFilter}>Show All</button>*!/*/}
+                    {/*</div>*/}
+                {/*</div>*/}
                 <div className="navigation-bar">
                     <ul role="list" aria-labelledby="places" style={{listStyleType: 'none'}}>
-                        {this.props.restaurantDetails.filter(this.filterFunction).map(newRestArray => (<li key= {newRestArray.ID}> {newRestArray.name} </li>))}
+                        {this.props.restaurantDetails.filter(this.props.filterFunction).map(newRestArray => (<li key= {newRestArray.ID}> {newRestArray.name} </li>))}
                     </ul>
                 </div>
             </div>

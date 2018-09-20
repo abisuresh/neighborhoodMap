@@ -10,6 +10,14 @@ import Search from './Search'
 import './App.css';
 
 class App extends Component {
+    constructor (props) {
+        super(props);
+        this.filterFunction = this.filterFunction.bind(this)
+        this.handleQueryChange = this.handleQueryChange.bind(this)
+        // for(let i=0; i<props.markerLocation.length; i++){
+        //
+        // }
+    }
 
     state = {
         locations:[
@@ -18,13 +26,28 @@ class App extends Component {
             {latitude: 44.475773, longitude: -73.21533, label: "C", color: "red", name: "Sweetwaters", ID: "4b19d11af964a520bbe423e3"},
             {latitude: 44.476904, longitude: -73.213243, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3"},
             {latitude: 44.477003, longitude: -73.214876, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69"}
-            ]
+            ],
+        query: ''
     }
 
      startMap(){
       let location = {}
       // let map = new google.maps.Map()
       // let locationMarker = new google.maps.Marker()
+    }
+
+    //function that filters the list view of the restaurants displayed on the navigation
+    filterFunction(value) {
+        let matchesFilters = value.name.toUpperCase().match(this.state.query.toUpperCase());
+        if(matchesFilters == null){
+            return false
+        }else{
+            return true
+        }
+    }
+
+    handleQueryChange(event){
+        this.setState({query: event.target.value})
     }
 
     // componentDidMount(){
@@ -68,11 +91,20 @@ class App extends Component {
                     Restaurant Locations
                 </div>
                 <div tabIndex={0} className="search-container">
-                    {/*<Search />*/}
+                    <div className="search-bar">
+                        <div className="input-filter">
+                            <input type="text" placeholder="Filter..." name="filter"
+                                   value = {this.state.query}
+                                   onChange= {this.handleQueryChange}
+                            />
+                            {/*<button type="submit" onClick={this.removeFilter}>Show All</button>*/}
+                        </div>
+                    </div>
                 </div>
                 <div tabIndex={0} aria-labelledby="navigation" className="navigation-container" style={{border: '1px solid black'}}>
                     <Navigation
                         restaurantDetails = {this.state.locations}
+                        filterFunction = {this.filterFunction}
                     />
                 </div>
             </div>
@@ -85,6 +117,8 @@ class App extends Component {
                         //  width = "800"
                         //  height = "600"
                          markerLocation= {this.state.locations}
+                         restaurantDetails = {this.state.locations}
+                         filterFunction = {this.filterFunction}
                     />
                 </div>
             </div>

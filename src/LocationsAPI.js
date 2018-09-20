@@ -16,7 +16,7 @@ export const getData = (ID) =>
             return {}
 
             }
-        )
+        ).catch(error => console.log('error in retrieving data', error));
 
 
 
