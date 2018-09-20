@@ -21,11 +21,11 @@ class App extends Component {
 
     state = {
         locations:[
-            {latitude: 44.475910, longitude: -73.213434, label: "A", color: "red", name: "Thai Dishes", ID: "53da7401498eec845e38b417"},
-            {latitude: 44.476814, longitude: -73.213847, label: "B", color: "red", name: "American Flatbread", ID: "4af3a181f964a520fcee21e3"},
-            {latitude: 44.475773, longitude: -73.21533, label: "C", color: "red", name: "Sweetwaters", ID: "4b19d11af964a520bbe423e3"},
-            {latitude: 44.476904, longitude: -73.213243, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3"},
-            {latitude: 44.477003, longitude: -73.214876, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69"}
+            {latitude: 44.4756122, longitude: -73.2149202, label: "A", color: "red", name: "Thai Dishes", ID: "53da7401498eec845e38b417"},
+            {latitude: 44.4765, longitude: -73.2143, label: "B", color: "red", name: "American Flatbread", ID: "4af3a181f964a520fcee21e3"},
+            {latitude: 44.4770, longitude: -73.2124, label: "C", color: "red", name: "Sweetwaters", ID: "4b19d11af964a520bbe423e3"},
+            {latitude: 44.4769, longitude: -73.2127, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3"},
+            {latitude: 44.4768, longitude: -73.2151, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69"}
             ],
         query: ''
     }
