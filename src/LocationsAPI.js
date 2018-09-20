@@ -12,10 +12,12 @@ export const getData = (ID) =>
     })
         .then(function(restDetailsData){
 
-            let output = JSON.stringify(restDetailsData);
-            console.log(output);
+            // return restDetailsData.response.venue.contact;
+            return {}
 
-        })
+            }
+        )
+
 
 
 // https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=CLIENT_ID&client_secret=CLIENT_SECRET&v=YYYYMMDD

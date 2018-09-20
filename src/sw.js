@@ -7,16 +7,16 @@
 var cacheName = "MapProject";
 var pagesToCache = [
     '/',
-    '/src/App.css',
-    '/src/App.js',
-    '/src/index.css',
-    '/src/index.js',
-    '/src/LocationsAPI.js',
-    '/src/Markers.js',
-    '/src/Map.js',
-    '/src/Navigation.js',
-    '/src/Search.js',
-    '/public/index.html'
+    '/App.css',
+    '/App.js',
+    '/index.css',
+    '/index.js',
+    '/LocationsAPI.js',
+    '/Markers.js',
+    '/Map.js',
+    '/Navigation.js',
+    '/Search.js',
+    '/index.html'
 ];
 
 //Installing service worker

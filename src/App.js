@@ -53,12 +53,6 @@ class App extends Component {
     }
 
   render() {
-    // const mapStyle={
-    //     width: '95%',
-    //     height: '100%',
-    //     float: 'right',
-    //     overflowX: 'hidden'
-    // }
 
     return (
       <div className="App">

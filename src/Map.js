@@ -9,10 +9,17 @@ import PropTypes from 'prop-types'
 
 export class MapComp extends Component {
 
+    constructor (props) {
+        super(props);
+        // for(let i=0; i<props.markerLocation.length; i++){
+        //
+        // }
+    }
+
     state = {
-            showingInfoWindow:false,
-            activeMarker: {},
-            selectedPlace: {},
+        showingInfoWindow:false,
+        activeMarker: {},
+        selectedPlace: {},
     };
 
     onMarkerClick=(props, marker, e) =>
@@ -32,6 +39,7 @@ export class MapComp extends Component {
         }
     }
 
+
     //Call to Foursquare API
 
 
@@ -41,48 +49,17 @@ export class MapComp extends Component {
         //     this.setState({ similarLocations: locations })
         // })
 
-        //for loop to go through each restaurant in the array and return it's data
+        // for loop to go through each restaurant in the array and return it's data
 
-        for(let i=0; i < this.props.markerLocation.length; i++){
-            LocationsAPI.getData(this.props.markerLocation[i].ID).then((locations) => {
-                this.setState({similarLocations: locations})
-            })
-        }
+        // for(let i=0; i < this.props.markerLocation.length; i++){
+        //     LocationsAPI.getData(this.props.markerLocation[i].ID).then((locations) => {
+        //         this.setState({similarLocations: locations})
+        //     })
+        // }
     }
-
-
-    // loopRestaurants(index){
-    //     for(let i=0; i < this.props.markerLocation.length; i ++){
-    //         LocationsAPI.getData(this.props.markerLocation[index].ID. then((locations) => {
-    //             this.setState({similarLocations: locations})
-    //         }))
-    //     }
-    // }
 
     //Converting JSON from API to HTML
     //https://www.w3schools.com/js/js_json_html.asp
-    //
-    // parseJSON(){
-    //     obj = {table: "Restaurant details", limit: 10};
-    //     dbParam = JSON.stringify(obj);
-    //     xmlhttp = new XMLHttpRequest();
-    //     xmlhttp.onreadystatechange = function(){
-    //         if (this.readyState == 4 && this.status == 200){
-    //             fsAPI = JSON.parse(this.responseText);
-    //             txt += "<select>"
-    //             for (x in fsAPI) {
-    //                 txt += "<option>" + fsAPI[x].name;
-    //             }
-    //             txt += "</select>"
-    //             document.getElementById("demo").innerHTML = txt;
-    //         }
-    //     }
-    //
-    //     xmlhttp.open("POST", true); //need file
-    //     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //     xmlhttp.send("x=" + dbParam);
-    // }
-
 
 
     //creating static map
@@ -116,19 +93,33 @@ export class MapComp extends Component {
                  style={{overflow:'hidden' }}
                  onClick={this.onMapClicked}>
                 {/*<Marker onClick={this.onMarkerClick}*/}
-                        {/*name={'Current location'} />*/}
-                {this.props.markerLocation.map(newMarker => (<Marker key={newMarker.ID}
-                    position={{ lat: newMarker.latitude , lng: newMarker.longitude }}
-                    name ={newMarker.name}
-                    title = {newMarker.name}
-                />))}
-                <InfoWindow
-                    marker={this.state.activeMarker}
-                    visible={this.state.showingInfoWindow}>
-                    <div>
-                        <h1>{this.state.selectedPlace.name}</h1>
-                    </div>
-                </InfoWindow>
+                {/*name={'Current location'} />*/}
+                {this.props.markerLocation.map(newMarker => {
+                    return (
+                            <Marker key={newMarker.ID}
+                                    position={{ lat: newMarker.latitude , lng: newMarker.longitude }}
+                                    name ={newMarker.name}
+                                    title = {newMarker.name}
+                                    onClick={this.onMarkerClick}
+                            />
+                    )})
+                }
+
+                {this.props.markerLocation.map(newMarker => {
+                    let contactInfo = LocationsAPI.getData(newMarker.ID)
+                    return (
+                        <InfoWindow
+                            marker={this.state.activeMarker}
+                            visible={this.state.showingInfoWindow}>
+                            <div>
+                                <h1>{this.state.selectedPlace.name}</h1>
+                                <span> {JSON.stringify(contactInfo)} </span>
+                            </div>
+                        </InfoWindow>
+                    )
+                }
+                )}
+
             </Map>
         );
 
@@ -136,13 +127,13 @@ export class MapComp extends Component {
 
 }
 
-            // {/*<div>*/}
-            //     {/*<div aria-labelledby="map" role="application" tabIndex={0} className="map">*/}
-            //         {/*<img src={this.getGoogleMap(apiKEY, this.props)} />*/}
-            //         {/*{this.getGoogleMap(apiKEY, this.props)}*/}
-            //
-            //     {/*</div>*/}
-            // {/*</div>*/}
+// {/*<div>*/}
+//     {/*<div aria-labelledby="map" role="application" tabIndex={0} className="map">*/}
+//         {/*<img src={this.getGoogleMap(apiKEY, this.props)} />*/}
+//         {/*{this.getGoogleMap(apiKEY, this.props)}*/}
+//
+//     {/*</div>*/}
+// {/*</div>*/}
 
 
 // export default MapComp
