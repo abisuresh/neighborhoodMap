@@ -15,6 +15,8 @@ class App extends Component {
         this.filterFunction = this.filterFunction.bind(this)
         this.handleQueryChange = this.handleQueryChange.bind(this)
         this.listClicked = this.listClicked.bind(this)
+        this.onMapClicked = this.onMapClicked.bind(this)
+        this.onMarkerClick = this.onMarkerClick.bind(this)
         // for(let i=0; i<props.markerLocation.length; i++){
         //
         // }
@@ -22,14 +24,14 @@ class App extends Component {
 
     state = {
         locations:[
-            {latitude: 44.4756122, longitude: -73.2149202, label: "A", color: "red", name: "Thai Dishes", ID: "53da7401498eec845e38b417"},
-            {latitude: 44.4765, longitude: -73.2143, label: "B", color: "red", name: "American Flatbread", ID: "4af3a181f964a520fcee21e3"},
-            {latitude: 44.4770, longitude: -73.2124, label: "C", color: "red", name: "Sweetwaters", ID: "4b19d11af964a520bbe423e3"},
-            {latitude: 44.4769, longitude: -73.2127, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3"},
-            {latitude: 44.4768, longitude: -73.2151, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69"}
+            {latitude: 44.4756122, longitude: -73.2149202, label: "A", color: "red", name: "Thai Dishes", ID: "53da7401498eec845e38b417", showingInfoWindow: false},
+            {latitude: 44.4765, longitude: -73.2143, label: "B", color: "red", name: "American Flatbread", ID: "4af3a181f964a520fcee21e3", showingInfoWindow: false},
+            {latitude: 44.4770, longitude: -73.2124, label: "C", color: "red", name: "Sweetwaters", ID: "4b19d11af964a520bbe423e3", showingInfoWindow: false},
+            {latitude: 44.4769, longitude: -73.2127, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3", showingInfoWindow: false},
+            {latitude: 44.4768, longitude: -73.2151, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69", showingInfoWindow: false}
             ],
         query: '',
-
+        activeMarker: {},
         clickedLocations: []
     }
 
@@ -63,13 +65,34 @@ class App extends Component {
     // }
 
     listClicked(event){
+        const newLocationsList = this.state.locations.slice()
         for(let i=0; i< this.state.locations.length; i++){
             const loc = this.state.locations[i]
             if(loc.name === event.target.textContent.trim()){
-                const newLocationsList = this.state.locations.slice()
                 newLocationsList[i]= Object.assign(loc, {color: 'green'})
-                this.setState({locations: newLocationsList})
+                // newLocationsList[i]= Object.assign(loc, {showingInfoWindow: true})
+            }else{
+                newLocationsList[i]= Object.assign(loc, {color: 'red'})
+                // newLocationsList[i]= Object.assign(loc, {showingInfoWindow: false})
             }
+        }
+        this.setState({locations: newLocationsList})
+    }
+
+    onMarkerClick=(props, marker, e) =>
+        this.setState({
+            selectedPlace:props,
+            activeMarker: marker,
+            showingInfoWindow: true
+        });
+
+
+    onMapClicked = (props) => {
+        if(this.state.showingInfoWindow){
+            this.setState({
+                showingInfoWindow: false,
+                activeMarker: null
+            })
         }
     }
 
@@ -144,6 +167,10 @@ class App extends Component {
                          markerLocation= {this.state.locations}
                          restaurantDetails = {this.state.locations}
                          filterFunction = {this.filterFunction}
+                         onMarkerClick = {this.onMarkerClick}
+                         onMapClicked = {this.onMapClicked}
+                         activeMarker = {this.state.activeMarker}
+                         showingInfoWindow = {this.state.showingInfoWindow}
                     />
                 </div>
             </div>

@@ -1,3 +1,4 @@
+import React, {Component } from 'react'
 
 //Using Foursquare API to pull information about places and restaurants
 
@@ -12,9 +13,8 @@ export const getData = (ID) =>
     })
         .then(function(restDetailsData){
 
-            // return restDetailsData.response.venue.contact;
-            return {}
-
+            return (<li>{restDetailsData.response.venue.contact }</li>);
+            // return {}
             }
         ).catch(error =>
             console.log('error in retrieving data', error)
