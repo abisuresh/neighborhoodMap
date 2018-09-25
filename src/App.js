@@ -70,21 +70,42 @@ class App extends Component {
             const loc = this.state.locations[i]
             if(loc.name === event.target.textContent.trim()){
                 newLocationsList[i]= Object.assign(loc, {color: 'green'})
-                // newLocationsList[i]= Object.assign(loc, {showingInfoWindow: true})
+                newLocationsList[i]= Object.assign(loc, {showingInfoWindow: true})
             }else{
                 newLocationsList[i]= Object.assign(loc, {color: 'red'})
-                // newLocationsList[i]= Object.assign(loc, {showingInfoWindow: false})
+                newLocationsList[i]= Object.assign(loc, {showingInfoWindow: false})
             }
         }
         this.setState({locations: newLocationsList})
     }
 
-    onMarkerClick=(props, marker, e) =>
+    onMarkerClick=(props, marker, e) => {
+        // this.state.locations.filter(location => location.name == marker.name);
+        const newLocationsList = this.state.locations.slice()
+        for(let i=0; i< this.state.locations.length; i++){
+            const loc = this.state.locations[i]
+            if(loc.name === marker.name){
+                newLocationsList[i]= Object.assign(loc, {color: 'green'})
+                newLocationsList[i]= Object.assign(loc, {showingInfoWindow: true})
+            }else{
+                newLocationsList[i]= Object.assign(loc, {color: 'red'})
+                newLocationsList[i]= Object.assign(loc, {showingInfoWindow: false})
+            }
+        }
+
         this.setState({
-            selectedPlace:props,
+            locations: newLocationsList,
+            selectedPlace: props,
             activeMarker: marker,
-            showingInfoWindow: true
-        });
+            // showingInfoWindow: true
+        })
+
+        // this.setState({
+        //     selectedPlace:props,
+        //     activeMarker: marker,
+        //     showingInfoWindow: true
+        // })
+    };
 
 
     onMapClicked = (props) => {

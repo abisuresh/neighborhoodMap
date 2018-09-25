@@ -122,19 +122,21 @@ export class MapComp extends Component {
                     )})
                 }
 
-                {this.props.markerLocation.filter(this.filterShowingWindows).map(newMarker => {
-                    {/*let contactInfo = LocationsAPI.getData(newMarker.ID)*/}
-                    {/*if(contactInfo == null){*/}
-                        {/*contactInfo = 'Data not loading'*/}
-                    {/*}*/}
+                {this.props.markerLocation.map(newMarker => {
+                    let contactInfo = LocationsAPI.getData(newMarker.ID)
+                    if(!contactInfo){
+                        contactInfo = 'Data not loading'
+                    }
                     return (
                         <InfoWindow
                             marker={this.props.activeMarker}
-                            visible={this.props.showingInfoWindow}
+                            position={{ lat: newMarker.latitude , lng: newMarker.longitude }}
+                            // visible={this.props.showingInfoWindow}
+                            visible={newMarker.showingInfoWindow}
                         >
                             <div>
                                 <h1>{newMarker.name}</h1>
-                                {/*<span> {JSON.stringify(contactInfo)} </span>*/}
+                                <span> {JSON.stringify(contactInfo)} </span>
                             </div>
                         </InfoWindow>
                     )
