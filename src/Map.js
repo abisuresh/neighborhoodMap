@@ -108,8 +108,15 @@ export class MapComp extends Component {
                 {/*<Marker onClick={this.onMarkerClick}*/}
                 {/*name={'Current location'} />*/}
                 {this.props.restaurantDetails.filter(this.props.filterFunction).map(newMarker => {
+                    let contactInfo = LocationsAPI.getData(newMarker.ID)
+                    if(!contactInfo){
+                        contactInfo = 'Data not loading'
+                    }
+                    let markerRef = React.createRef()
+                    {/*this.props.attachMarkerLocation(newMarker.name,markerRef)*/}
                     return (
                             <Marker key={newMarker.ID}
+                                    ref= {newMarker.markerRef}
                                     position={{ lat: newMarker.latitude , lng: newMarker.longitude }}
                                     name ={newMarker.name}
                                     //https://medium.com/@letian1997/how-to-change-javascript-google-map-marker-color-8a72131d1207?source=userActivityShare-132a3f83f2e2-1537478743
@@ -117,19 +124,21 @@ export class MapComp extends Component {
                                         url:`https://maps.google.com/mapfiles/ms/icons/${newMarker.color}-dot.png`
                             }}
                                     title = {newMarker.name}
-                                    onClick={this.props.onMarkerClick}
-                            />
+                                    onClick={this.props.onMarkerClick}>
+                            </Marker>
                     )})
                 }
 
-                {this.props.markerLocation.map(newMarker => {
+                {this.props.markerLocation.filter((marker) => marker.markerRef.current != null).map(newMarker => {
                     let contactInfo = LocationsAPI.getData(newMarker.ID)
+                    {/*let url = contactInfo.response.venue.canonicalUrl*/}
+                    let url = `https://www.tripadvisor.com/Restaurant_Review-g57201-d6901707-Reviews-Thai_Dishes-Burlington_Vermont.html`
                     if(!contactInfo){
                         contactInfo = 'Data not loading'
                     }
                     return (
                         <InfoWindow
-                            marker={this.props.activeMarker}
+                            marker={newMarker.markerRef.current.marker}
                             position={{ lat: newMarker.latitude , lng: newMarker.longitude }}
                             // visible={this.props.showingInfoWindow}
                             visible={newMarker.showingInfoWindow}
@@ -137,6 +146,8 @@ export class MapComp extends Component {
                             <div>
                                 <h1>{newMarker.name}</h1>
                                 <span> {JSON.stringify(contactInfo)} </span>
+                                <h2><a href = {url}>Test URL</a></h2>
+                                {/*<h3>Test</h3>*/}
                             </div>
                         </InfoWindow>
                     )

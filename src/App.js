@@ -17,6 +17,7 @@ class App extends Component {
         this.listClicked = this.listClicked.bind(this)
         this.onMapClicked = this.onMapClicked.bind(this)
         this.onMarkerClick = this.onMarkerClick.bind(this)
+        this.attachMarkerLocation = this.attachMarkerLocation.bind(this)
         // for(let i=0; i<props.markerLocation.length; i++){
         //
         // }
@@ -24,11 +25,11 @@ class App extends Component {
 
     state = {
         locations:[
-            {latitude: 44.4756122, longitude: -73.2149202, label: "A", color: "red", name: "Thai Dishes", ID: "53da7401498eec845e38b417", showingInfoWindow: false},
-            {latitude: 44.4765, longitude: -73.2143, label: "B", color: "red", name: "American Flatbread", ID: "4af3a181f964a520fcee21e3", showingInfoWindow: false},
-            {latitude: 44.4770, longitude: -73.2124, label: "C", color: "red", name: "Sweetwaters", ID: "4b19d11af964a520bbe423e3", showingInfoWindow: false},
-            {latitude: 44.4769, longitude: -73.2127, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3", showingInfoWindow: false},
-            {latitude: 44.4768, longitude: -73.2151, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69", showingInfoWindow: false}
+            {latitude: 44.4756122, longitude: -73.2149202, label: "A", color: "red", name: "Thai Dishes", ID: "53da7401498eec845e38b417", markerRef: React.createRef(), showingInfoWindow: false},
+            {latitude: 44.4765, longitude: -73.2143, label: "B", color: "red", name: "American Flatbread", ID: "4af3a181f964a520fcee21e3", markerRef: React.createRef(), showingInfoWindow: false},
+            {latitude: 44.4770, longitude: -73.2124, label: "C", color: "red", name: "Sweetwaters", ID: "4b19d11af964a520bbe423e3", markerRef: React.createRef(), showingInfoWindow: false},
+            {latitude: 44.4769, longitude: -73.2127, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3", markerRef: React.createRef(), showingInfoWindow: false},
+            {latitude: 44.4768, longitude: -73.2151, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69", markerRef: React.createRef(), showingInfoWindow: false}
             ],
         query: '',
         activeMarker: {},
@@ -117,6 +118,20 @@ class App extends Component {
         }
     }
 
+    attachMarkerLocation(name, marker){
+        const newLocationsList = this.state.locations.slice()
+        for(let i=0; i< this.state.locations.length; i++){
+            const loc = this.state.locations[i]
+            if(loc.name === name){
+                newLocationsList[i]= Object.assign(loc, {marker: marker})
+            }
+        }
+
+        this.setState({
+            activeMarker: newLocationsList,
+        })
+    }
+
     // componentDidMount(){
     //     this.mount = true;
     //     LocationsAPI.fetch("https://api.foursquare.com/v2/venues/VENUE_ID/similar").then(response  => response.json())
@@ -192,6 +207,8 @@ class App extends Component {
                          onMapClicked = {this.onMapClicked}
                          activeMarker = {this.state.activeMarker}
                          showingInfoWindow = {this.state.showingInfoWindow}
+                         // listClicked = {this.listClicked}
+                         attachMarkerLocation = {this.attachMarkerLocation}
                     />
                 </div>
             </div>

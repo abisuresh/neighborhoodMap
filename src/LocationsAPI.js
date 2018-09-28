@@ -12,10 +12,13 @@ export const getData = (ID) =>
         return response.json();
     })
         .then(function(restDetailsData){
+            let url = restDetailsData.response.venue.canonicalUrl
 
             // return (<li>{restDetailsData.response.venue.contact }</li>);
             // console.log(restDetailsData);
-            return {}
+            // return {}
+            return restDetailsData
+            // return url
             }
         ).catch(error =>
             console.log('error in retrieving data', error)
