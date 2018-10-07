@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class InfoWindow extends Component {
+class Error extends Component {
 
     state = {
 
@@ -21,4 +21,4 @@ class InfoWindow extends Component {
 
 }
 
-export default InfoWindow
+export default Error
