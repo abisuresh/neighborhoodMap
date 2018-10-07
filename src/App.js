@@ -3,7 +3,6 @@ import { BrowserRouter } from 'react-router'
 import { Route } from 'react-router'
 import { Link } from 'react-router'
 import MapComp from './Map'
-import Markers from './Markers'
 import * as LocationsAPI from './LocationsAPI'
 import Navigation from './Navigation'
 import Search from './Search'
@@ -154,7 +153,9 @@ class App extends Component {
             const loc = this.state.locations[i]
             if(loc.name === name){
                 if(response.ok) {
-                    newLocationsList[i] = Object.assign(loc, {apiInfo: response.response.venue.contact})
+                    response.json().then((response) => {
+                        newLocationsList[i] = Object.assign(loc, {apiInfo: JSON.stringify(response.response.venue.contact)})
+                    })
                 }else{
                     newLocationsList[i] = Object.assign(loc, {apiInfo: "Unable to load data"})
                 }

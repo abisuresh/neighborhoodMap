@@ -56,7 +56,7 @@ class Navigation extends Component {
                 {/*</div>*/}
                 <div className="navigation-bar">
                     <ul role="list" aria-labelledby="places" style={{listStyleType: 'none'}}>
-                        {this.props.restaurantDetails.filter(this.props.filterFunction).map(newRestArray => (<li
+                        {this.props.restaurantDetails.filter(this.props.filterFunction).map(newRestArray => (<li tabindex={0}
                             // onClick={() => this.listClicked(0)}
                             // className={this.state.activeIndex !== 0 ? 'unclicked' : 'clicked'}
                             onClick={ this.props.listClicked }

@@ -12,7 +12,6 @@ var pagesToCache = [
     '/index.css',
     '/index.js',
     '/LocationsAPI.js',
-    '/Markers.js',
     '/Map.js',
     '/Navigation.js',
     '/Search.js',

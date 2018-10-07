@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import Search from './Search'
 import * as LocationsAPI from './LocationsAPI'
 import PropTypes from 'prop-types'
-import FourSquareInfo from "./FourSquareInfo";
 
 //Creating dynamic map using Google Maps React npm package
 //https://www.npmjs.com/package/google-maps-react
@@ -36,41 +34,7 @@ export class MapComp extends Component {
 
     }
 
-    //function that filters the list view of the restaurants displayed on the navigation
-    // markerFilterFunction(value) {
-    //     // if(this.filterFunction == false){
-    //     //     return true
-    //     //
-    //     // }else if(this.filterFunction ==true){
-    //     //     return true
-    //     //
-    //     // }
-    //
-    //     return true
-    //     // let matchesMarkers = value.name.toUpperCase().match(this.state.query.toUpperCase());
-    //     // if(matchesMarkers == null){
-    //     //     return false
-    //     // }else{
-    //     //     return true
-    //     // }
-    // }
-    //Call to Foursquare API
 
-
-    // componentDidMount(){
-    //     this.mount = true;
-    //     // LocationsAPI.getData(this.props.markerLocation[0].ID).then((locations) => {
-    //     //     this.setState({ similarLocations: locations })
-    //     // })
-    //
-    //     // for loop to go through each restaurant in the array and return it's data
-    //
-    //     // for(let i=0; i < this.props.markerLocation.length; i++){
-    //     //     LocationsAPI.getData(this.props.markerLocation[i].ID).then((locations) => {
-    //     //         this.setState({similarLocations: locations})
-    //     //     })
-    //     // }
-    // }
 
     //Converting JSON from API to HTML
     //https://www.w3schools.com/js/js_json_html.asp
@@ -93,12 +57,23 @@ export class MapComp extends Component {
     // }
 
 
+    //Utilized Google Maps React documentation https://github.com/fullstackreact/google-maps-react
+
     render() {
         let {latitude, longitude, width, height, markerPin} = this.props
+        let backupDivStyle = {
+            color: 'white',
+            backgroundColor: 'rgb(66, 206, 244)'
+        }
         const apiKEY = "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"
         const AReactComponent = ({text}) => <div>{text}</div>
+        const defaultContainer = (props) => (
+            <div style={backupDivStyle}>
+
+                This Google Map Is Still Loading... </div>
+        )
         return (
-            <Map google={this.props.google}
+            <Map google={{...this.props.google, LoadingContainer: defaultContainer}}
                  initialCenter={{
                      lat: 44.4760983,
                      lng: -73.2141478
@@ -178,6 +153,20 @@ export class MapComp extends Component {
 
 // export default MapComp
 
+let backupDivStyle = {
+    color: 'white',
+    backgroundColor: 'rgb(66, 206, 244)',
+    alignContent: 'center',
+    textAlign: 'center'
+}
+
+const defaultContainer = (props) => (
+    <div style={backupDivStyle}>
+
+        This Google Map Is Still Loading... </div>
+)
+
 export default GoogleApiWrapper({
+    LoadingContainer: defaultContainer,
     apiKey: ("AIzaSyDd5QYqnqqvbUCzTC5jH3tbf5YbltIbAmg")
 })(MapComp)

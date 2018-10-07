@@ -30,17 +30,17 @@
     </script>
 
     <!-- registering service worker  -->
-    <script>
-        if('serviceWorker' in navigator) {
-            window.addEventListener('load', function(){
-                navigator.serviceWorker.register('/src/sw.js').then(function(registration){
-                    console.log("Service Worker Registered");
-                }, function(error){
-                    console.log('Service Worker Failed to Register', error);
-                });
-            });
-        }
-    </script>
+    <!--<script>-->
+        <!--if('serviceWorker' in navigator) {-->
+            <!--window.addEventListener('load', function(){-->
+                <!--navigator.serviceWorker.register('/src/sw.js').then(function(registration){-->
+                    <!--console.log("Service Worker Registered");-->
+                <!--}, function(error){-->
+                    <!--console.log('Service Worker Failed to Register', error);-->
+                <!--});-->
+            <!--});-->
+        <!--}-->
+    <!--</script>-->
 
     <!--jQuery minified CDN -->
     <script
