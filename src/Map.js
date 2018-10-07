@@ -3,6 +3,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Search from './Search'
 import * as LocationsAPI from './LocationsAPI'
 import PropTypes from 'prop-types'
+import FourSquareInfo from "./FourSquareInfo";
 
 //Creating dynamic map using Google Maps React npm package
 //https://www.npmjs.com/package/google-maps-react
@@ -108,10 +109,10 @@ export class MapComp extends Component {
                 {/*<Marker onClick={this.onMarkerClick}*/}
                 {/*name={'Current location'} />*/}
                 {this.props.restaurantDetails.filter(this.props.filterFunction).map(newMarker => {
-                    let contactInfo = LocationsAPI.getData(newMarker.ID)
-                    if(!contactInfo){
-                        contactInfo = 'Data not loading'
-                    }
+                    {/*let contactInfo = LocationsAPI.getData(newMarker.ID)*/}
+                    {/*if(!contactInfo){*/}
+                        {/*contactInfo = 'Data not loading'*/}
+                    {/*}*/}
                     let markerRef = React.createRef()
                     {/*this.props.attachMarkerLocation(newMarker.name,markerRef)*/}
                     return (
@@ -130,12 +131,13 @@ export class MapComp extends Component {
                 }
 
                 {this.props.markerLocation.filter((marker) => marker.markerRef.current != null).map(newMarker => {
-                    let contactInfo = LocationsAPI.getData(newMarker.ID)
-                    {/*let url = contactInfo.response.venue.canonicalUrl*/}
-                    let url = `https://www.tripadvisor.com/Restaurant_Review-g57201-d6901707-Reviews-Thai_Dishes-Burlington_Vermont.html`
-                    if(!contactInfo){
-                        contactInfo = 'Data not loading'
-                    }
+
+                    {/*let contactInfo = LocationsAPI.getData(newMarker.ID)*/}
+                    {/*/!*let url = contactInfo.response.venue.canonicalUrl*!/*/}
+                    {/*let url = `https://www.tripadvisor.com/Restaurant_Review-g57201-d6901707-Reviews-Thai_Dishes-Burlington_Vermont.html`*/}
+                    {/*if(!contactInfo){*/}
+                        {/*contactInfo = 'Data not loading'*/}
+                    {/*}*/}
                     return (
                         <InfoWindow
                             marker={newMarker.markerRef.current.marker}
@@ -143,12 +145,16 @@ export class MapComp extends Component {
                             // visible={this.props.showingInfoWindow}
                             visible={newMarker.showingInfoWindow}
                         >
-                            <div>
-                                <h1>{newMarker.name}</h1>
-                                <span> {JSON.stringify(contactInfo)} </span>
-                                <h2><a href = {url}>Test URL</a></h2>
+                                <div>
+                                    <h1>{newMarker.name}</h1>
+                                    <span> {newMarker.apiInfo} </span>
+
+                                    {/*<h2><a href = {this.props.url}>Test URL</a></h2>*/}
+                                    {/*<h1> Additional info: </h1>*/}
+                                    {/*<h2>{this.state.apiInfo} </h2>*/}
+                                </div>
+
                                 {/*<h3>Test</h3>*/}
-                            </div>
                         </InfoWindow>
                     )
                 }

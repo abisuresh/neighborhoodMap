@@ -9,10 +9,12 @@ const foursquareAPI ="https://api.foursquare.com/v2/venues/VENUE_ID/similar"
 export const getData = (ID) =>
     fetch(`https://api.foursquare.com/v2/venues/${ID}?client_id=${clientID}&client_secret=${clientSecret}&v=20180918`)
     .then(function(response){
+        // infoCallback(response);
+        console.log(response.ok);
         return response.json();
     })
         .then(function(restDetailsData){
-            let url = restDetailsData.response.venue.canonicalUrl
+            // let url = restDetailsData.response.venue.canonicalUrl
 
             // return (<li>{restDetailsData.response.venue.contact }</li>);
             // console.log(restDetailsData);

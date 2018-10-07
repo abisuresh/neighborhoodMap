@@ -25,11 +25,11 @@ class App extends Component {
 
     state = {
         locations:[
-            {latitude: 44.4756122, longitude: -73.2149202, label: "A", color: "red", name: "Thai Dishes", ID: "53da7401498eec845e38b417", markerRef: React.createRef(), showingInfoWindow: false},
-            {latitude: 44.4765, longitude: -73.2143, label: "B", color: "red", name: "American Flatbread", ID: "4af3a181f964a520fcee21e3", markerRef: React.createRef(), showingInfoWindow: false},
-            {latitude: 44.4770, longitude: -73.2124, label: "C", color: "red", name: "Sweetwaters", ID: "4b19d11af964a520bbe423e3", markerRef: React.createRef(), showingInfoWindow: false},
-            {latitude: 44.4769, longitude: -73.2127, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3", markerRef: React.createRef(), showingInfoWindow: false},
-            {latitude: 44.4768, longitude: -73.2151, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69", markerRef: React.createRef(), showingInfoWindow: false}
+            {latitude: 44.4756122, longitude: -73.2149202, label: "A", color: "red", name: "Thai Dishes", ID: "53da7401498eec845e38b417", markerRef: React.createRef(), apiInfo: "loading data", showingInfoWindow: false},
+            {latitude: 44.4765, longitude: -73.2143, label: "B", color: "red", name: "American Flatbread", ID: "4af3a181f964a520fcee21e3", markerRef: React.createRef(), apiInfo: "loading data", showingInfoWindow: false},
+            {latitude: 44.4770, longitude: -73.2124, label: "C", color: "red", name: "Sweetwaters", ID: "4b19d11af964a520bbe423e3", markerRef: React.createRef(), apiInfo: "loading data", showingInfoWindow: false},
+            {latitude: 44.4769, longitude: -73.2127, label: "D", color: "red", name: "Ri Ra's", ID: "4b1306fff964a520ed9223e3", markerRef: React.createRef(), apiInfo: "loading data", showingInfoWindow: false},
+            {latitude: 44.4768, longitude: -73.2151, label: "E", color: "red", name: "Sherpa Kitchen", ID: "4faaf19ce4b0af50a80a7e69", markerRef: React.createRef(), apiInfo: "loading data", showingInfoWindow: false}
             ],
         query: '',
         activeMarker: {},
@@ -128,27 +128,44 @@ class App extends Component {
         }
 
         this.setState({
-            activeMarker: newLocationsList,
+            locations: newLocationsList,
         })
     }
 
-    // componentDidMount(){
-    //     this.mount = true;
-    //     LocationsAPI.fetch("https://api.foursquare.com/v2/venues/VENUE_ID/similar").then(response  => response.json())
-    //         .then((resp) => {
-    //         this.setState({
-    //             isLoaded: true,
-    //             items: resp.items
-    //         })
-    //     })
-    // }
+    componentDidMount(){
+        // this.mount = true;
+        // LocationsAPI.fetch("https://api.foursquare.com/v2/venues/VENUE_ID/similar").then(response  => response.json())
+        //     .then((resp) => {
+        //     this.setState({
+        //         isLoaded: true,
+        //         items: resp.items
+        //     })
+        // })
+        for(let i=0; i< this.state.locations.length; i++) {
+            LocationsAPI.getData(this.state.locations[i].ID).then((response) => {
+                this.testInput(response, this.state.locations[i].name)
+            })
+        }
+    }
 
-    // componentDidMount(){
-    //     this.mount = true;
-    //     LocationsAPI.getData().then((locations) => {
-    //         this.setState({ similarLocations: locations })
-    //     })
-    // }
+    testInput(response, name){
+        const newLocationsList = this.state.locations.slice()
+        for(let i=0; i< this.state.locations.length; i++){
+            const loc = this.state.locations[i]
+            if(loc.name === name){
+                if(response.ok) {
+                    newLocationsList[i] = Object.assign(loc, {apiInfo: response.response.venue.contact})
+                }else{
+                    newLocationsList[i] = Object.assign(loc, {apiInfo: "Unable to load data"})
+                }
+            }
+        }
+
+        this.setState({
+            locations: newLocationsList,
+        })
+    }
+
 
     //Function that filters the markers displayed on the map
     markerFilter() {
