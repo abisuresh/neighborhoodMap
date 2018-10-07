@@ -20,6 +20,7 @@ export class MapComp extends Component {
         showingInfoWindow:false,
         activeMarker: {},
         selectedPlace: {},
+        googleMapsApi: false,
     };
 
     filterShowingWindows(m){
@@ -94,10 +95,20 @@ export class MapComp extends Component {
 
     render() {
         let {latitude, longitude, width, height, markerPin} = this.props
+        // let googleMapsApi = false;
+        function mapsCallBack(){
+            this.state.googleMapsApi = true;
+        }
         const apiKEY = "AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0"
         const AReactComponent = ({text}) => <div>{text}</div>
         return (
-            <Map google={this.props.google}
+            <Map
+                google={this.props.google}
+                  // google = {{
+                  //     apiKEY: 'AIzaSyBv-_zVD4uQJOvUcpyQIGQz-WQNP5Xi-p0',
+                  //     FallbackMap: FallbackMap
+                  //   }
+                  // }
                  initialCenter={{
                      lat: 44.4760983,
                      lng: -73.2141478
@@ -160,6 +171,11 @@ export class MapComp extends Component {
     }
 
 }
+
+const FallbackMap = (props) => (
+    <div> Google Maps still loading </div>
+
+)
 
 // {/*<div>*/}
 //     {/*<div aria-labelledby="map" role="application" tabIndex={0} className="map">*/}

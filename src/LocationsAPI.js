@@ -9,19 +9,36 @@ const foursquareAPI ="https://api.foursquare.com/v2/venues/VENUE_ID/similar"
 export const getData = (ID) =>
     fetch(`https://api.foursquare.com/v2/venues/${ID}?client_id=${clientID}&client_secret=${clientSecret}&v=20180918`)
     .then(function(response){
+        if(!response.ok){
+            throw Error(response.statusText);
+        }
         return response.json();
     })
-        .then(function(restDetailsData){
-            let url = restDetailsData.response.venue.canonicalUrl
+        // .then(function(restDetailsData){
+        //     // let url = restDetailsData.response.venue.canonicalUrl
+        //
+        //     // return (<li>{restDetailsData.response.venue.contact }</li>);
+        //     // console.log(restDetailsData);
+        //     // return {}
+        //     // if(restDetailsData.meta.code != 200){
+        //     //     console.log('Error in retrieving data');
+        //     //     Promise.reject(new Error('fail')).then(function() {
+        //     //         // not called
+        //     //     }, function(error) {
+        //     //         console.log(error); // Stacktrace
+        //     //     });
+        //     // }
+        //     return restDetailsData
+        //     // return url
+        //     }
+        // )
+    .catch(error => {
+            console.log('error in retrieving data', error);
+            // throw error;
 
-            // return (<li>{restDetailsData.response.venue.contact }</li>);
-            // console.log(restDetailsData);
-            // return {}
-            return restDetailsData
-            // return url
-            }
-        ).catch(error =>
-            console.log('error in retrieving data', error)
+        }
+
+
             )
 
 
